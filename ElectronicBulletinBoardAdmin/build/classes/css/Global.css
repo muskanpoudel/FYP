@@ -1,0 +1,70 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+#loginPane{
+    -fx-background-color: #2C3E50;    
+}
+
+#loginFields{
+    -fx-border-color: #ecf0f1;
+    -fx-background-color: #2C3E50;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#loginFields:focused{
+    -fx-border-color: #ecf0f1;
+    -fx-background-color: #34495E;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInOk{
+    -fx-border-color: #ecf0f1;
+    -fx-background-color: #2C3E50;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInOk:hover{
+    -fx-border-color: #2ecc71;
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInOk:focused{
+    -fx-border-color: #2ecc71;
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInCancel{
+    -fx-border-color: #ecf0f1;
+    -fx-background-color: #2C3E50;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInCancel:hover{
+    -fx-border-color: #E74c3c;
+    -fx-background-color: #E74c3c;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#logInCancel:focused{
+    -fx-border-color: #E74c3c;
+    -fx-background-color: #E74c3c;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
+#cantrememberpassword:hover{
+    -fx-text-fill: #E74C3C;
+}

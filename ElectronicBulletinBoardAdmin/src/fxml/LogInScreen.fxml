@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInScreenController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Pane id="loginPane" stylesheets="@../css/Global.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="146.0" fitWidth="146.0" layoutX="675.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/admin.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="#ecf0f1" layoutX="854.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, Administrator" wrappingWidth="340.857421875">
+                     <font>
+                        <Font name="Segoe UI" size="31.0" />
+                     </font>
+                  </Text>
+                  <TextField id="loginFields" fx:id="usernamefld" layoutX="852.0" layoutY="248.0" prefHeight="33.0" prefWidth="345.0" promptText="User name">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField id="loginFields" fx:id="passwordfld" layoutX="852.0" layoutY="291.0" prefHeight="33.0" prefWidth="345.0" promptText="Password">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <PasswordField id="loginFields" fx:id="pinfld" layoutX="852.0" layoutY="334.0" prefWidth="345.0" promptText="Pin Number">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <Button id="logInOk" layoutX="992.0" layoutY="397.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#LogInOkPressed" prefHeight="33.0" prefWidth="100.0" text="Ok">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="logInCancel" layoutX="1097.0" layoutY="397.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Cancel">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Circle fill="#f1c40f" layoutX="97.0" layoutY="169.0" radius="57.0" stroke="#f1c40f" strokeType="INSIDE" />
+                  <Circle fill="#d35400" layoutX="96.0" layoutY="309.0" radius="57.0" stroke="#d35400" strokeType="INSIDE" />
+                  <Circle fill="#2ecc71" layoutX="95.0" layoutY="443.0" radius="57.0" stroke="#2ecc71" strokeType="INSIDE" />
+                  <Circle fill="#9b59b6" layoutX="97.0" layoutY="580.0" radius="57.0" stroke="#9b59b6" strokeType="INSIDE" />
+                  <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="59.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/eye.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="57.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/graph.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="57.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/users.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="59.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/bulletin.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="168.0" layoutY="119.0" prefHeight="92.0" prefWidth="381.0" text="View Everything. Each and every details such as activities performed by content feeders, amount of bulletins piled up, amount of SMS sent and cost associated with it. Everything is within the focus of administrator." textFill="#ecf0f1" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#95a5a6" layoutX="720.0" layoutY="570.0" radius="57.0" stroke="#95a5a6" strokeType="INSIDE" />
+                  <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="682.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/sms.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="168.0" layoutY="260.0" prefHeight="92.0" prefWidth="381.0" text="Easy graphical representation for every details. All the required information can be easily accesed through user friendly charts and graphs." textFill="#ecf0f1" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="168.0" layoutY="394.0" prefHeight="92.0" prefWidth="381.0" text="Users or Content feeders can be added, removed, edited and suspended. That's not all, users activities can be monitored and all the datails about the user can be gained instantly. " textFill="#ecf0f1" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="168.0" layoutY="529.0" prefHeight="105.0" prefWidth="381.0" text="All the bulletins posted by each and every content feeders can be monitored. These feeds or bulletins can be removed or edited. Administrator has the full control over the bulletins. Bulletins in the large display can be viewd in real time." textFill="#ecf0f1" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="793.0" layoutY="521.0" prefHeight="102.0" prefWidth="381.0" text="Important bulletins can be made accessable to all the clients through SMS service. Content feeder can control SMS mechanism. Overall process can be easily viewed by the administrator. SMS cost, number of SMS sent etc. can be viewed and controlled by administrator." textFill="#ecf0f1" wrapText="true">
+                     <font>
+                        <Font name="Segoe UI" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="errorlbl" alignment="CENTER" contentDisplay="TOP" layoutX="668.0" layoutY="443.0" prefHeight="25.0" prefWidth="526.0" text="Authentication Failed! Please Try Again..." textFill="#c0392b" visible="false">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="internetIcon" fitHeight="30.0" fitWidth="30.0" layoutX="849.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/noInternet.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="internetlbl" contentDisplay="TOP" layoutX="888.0" layoutY="104.0" prefHeight="25.0" prefWidth="329.0" text="Checking please give us some moment." textFill="#e74c3c">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Text fill="#ecf0f1" layoutX="687.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Log In" wrappingWidth="121.857421875">
+                     <font>
+                        <Font name="Segoe UI" size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="databaseIcon" fitHeight="30.0" fitWidth="30.0" layoutX="851.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/nodatabase.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="databaselbl" contentDisplay="TOP" layoutX="887.0" layoutY="144.0" prefHeight="25.0" prefWidth="329.0" text="Checking please give us some moment." textFill="#e74c3c">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label id="cantrememberpassword" fx:id="databaselbl1" contentDisplay="TOP" layoutX="1000.0" layoutY="469.0" onMouseReleased="#showRecoveryPopup" prefHeight="25.0" prefWidth="194.0" text="??? Can't remember my password!!!" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Line endX="20.0" layoutX="1199.0" layoutY="265.0" startX="-2.0" stroke="WHITE" />
+                  <Label fx:id="databaselbl2" contentDisplay="TOP" layoutX="1221.0" layoutY="252.0" prefHeight="25.0" prefWidth="79.0" text="USERNAME" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="20.0" layoutX="1297.0" layoutY="265.0" startX="-2.0" stroke="WHITE" />
+                  <Circle fill="#e64b3b" layoutX="1323.0" layoutY="265.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Line endX="20.0" layoutX="1199.0" layoutY="307.0" startX="-2.0" stroke="WHITE" />
+                  <Label fx:id="databaselbl21" contentDisplay="TOP" layoutX="1221.0" layoutY="294.0" prefHeight="25.0" prefWidth="79.0" text="PASSWORD" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="20.0" layoutX="1297.0" layoutY="307.0" startX="-2.0" stroke="WHITE" />
+                  <Circle fill="#e64b3b" layoutX="1323.0" layoutY="307.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+                  <Line endX="48.0" layoutX="1199.0" layoutY="350.0" startX="-2.0" stroke="WHITE" />
+                  <Label fx:id="databaselbl211" contentDisplay="TOP" layoutX="1248.0" layoutY="337.0" prefHeight="25.0" prefWidth="25.0" text="PIN" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Line endX="70.0" layoutX="1247.0" layoutY="350.0" startX="25.0" stroke="WHITE" />
+                  <Circle fill="#e64b3b" layoutX="1323.0" layoutY="350.0" radius="6.0" stroke="WHITE" strokeType="INSIDE" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
