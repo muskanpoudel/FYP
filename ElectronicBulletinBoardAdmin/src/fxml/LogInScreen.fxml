@@ -12,13 +12,11 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LogInScreenController">
-    <stylesheets>
-        <URL value="@/css/Global.css" />
-    </stylesheets>
+   
    <children>
       <BorderPane prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
-            <Pane id="loginPane" stylesheets="@../css/Global.css" BorderPane.alignment="CENTER">
+            <Pane id="loginPane" BorderPane.alignment="CENTER">
                <children>
                   <ImageView fitHeight="146.0" fitWidth="146.0" layoutX="675.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
                      <image>

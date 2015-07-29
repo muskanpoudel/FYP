@@ -6,8 +6,11 @@
 package electronicbulletinboardadmin;
 
 import electronicbulletinboardadmin.preloader.ElectronicBulletinBoardAdmin_Preloader;
+import helperClasses.LocalUtility;
 import helperClasses.StuffHolder;
+import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
@@ -78,6 +81,10 @@ public class ElectronicBulletinBoardAdmin extends Application {
 
     public Scene createScene(Pane pane) {
         Scene scene = new Scene(pane, visualBounds.getWidth(), visualBounds.getHeight());
+        Properties pro = LocalUtility.getProperty();
+        String css = ElectronicBulletinBoardAdmin.class.getResource(pro.getProperty("cssfile").toString()).toExternalForm();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(css);
         return scene;
     }
 
