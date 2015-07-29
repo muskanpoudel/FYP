@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,45 +10,80 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="controllers.HomeScreenController">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeScreenController">
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
    <children>
       <BorderPane layoutX="178.0" layoutY="162.0" prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <GridPane BorderPane.alignment="CENTER">
+            <GridPane prefHeight="76.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <MenuBar>
-                    <menus>
-                      <Menu mnemonicParsing="false" text="File">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                              <MenuItem mnemonicParsing="false" onAction="#GoBack" text="Go Back" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                        </items>
-                      </Menu>
-                    </menus>
-                  </MenuBar>
+                  <Pane id="loginPane" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="71.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/ebb.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="115.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Electronic Bulletin Board [Admin]">
+                           <font>
+                              <Font name="Segoe UI" size="25.0" />
+                           </font>
+                        </Text>
+                        <Line endX="100.0" endY="180.0" layoutX="923.0" layoutY="-111.0" startX="100.0" startY="120.0" stroke="WHITE" />
+                        <Button id="homeLogoutBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="1337.0" layoutY="9.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="22.0">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/power.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1026.0" layoutY="10.0" prefHeight="17.0" prefWidth="302.0" text="Welcome, Muskan Poudel" textFill="WHITE">
+                           <font>
+                              <Font name="Segoe UI" size="15.0" />
+                           </font>
+                        </Label>
+                        <ToggleButton id="hometoggle" fx:id="menutogglebtn" layoutX="1224.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleBtnMenu" prefHeight="34.0" prefWidth="65.0">
+                           <font>
+                              <Font name="Segoe UI" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/menu.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                        <ToggleButton id="hometoggle" fx:id="dashtogglebtn" layoutX="1155.0" layoutY="35.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleBtnDash" prefHeight="34.0" prefWidth="65.0">
+                           <font>
+                              <Font name="Segoe UI" size="20.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/dashboard.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
+                     </children>
+                  </Pane>
                </children>
             </GridPane>
          </top>
+         <center>
+            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
       </BorderPane>
    </children>
 </AnchorPane>

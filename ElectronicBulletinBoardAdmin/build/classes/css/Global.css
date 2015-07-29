@@ -1,8 +1,7 @@
 /*
- * Empty Stylesheet file.
+ * This part is for login screen
  */
-
-.mainFxmlClass {
+.mainFxmlClass { 
 
 }
 #loginPane{
@@ -67,4 +66,43 @@
 }
 #cantrememberpassword:hover{
     -fx-text-fill: #E74C3C;
+}
+
+
+//this is for home screen
+#homeLogoutBtn{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #2C3E50;
+}
+#homeLogoutBtn:hover{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #E74C3C;
+}
+#homeLogoutBtn:pressed{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #E74C3C;
+    -fx-border-color: #E74C3C;
+}
+#hometoggle{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #2C3E50;
+}
+#hometoggle:hover{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #2ecc71;
+}
+#hometoggle:selected{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2ecc71;
+    -fx-border-color: #2ecc71;
 }

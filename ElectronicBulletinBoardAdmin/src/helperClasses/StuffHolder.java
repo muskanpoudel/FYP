@@ -15,7 +15,10 @@ public class StuffHolder {
 
     public static String LogInScreen = "/fxml/LogInScreen.fxml";
     public static String HomeScreen = "/fxml/HomeScreen.fxml";
-    public static String passwordRecovery = "/fxml/forgotPassword.fxml";
+    public static String msgpopup = "/fxml/MsgPopup.fxml";
+    public static String confirmpopup = "/fxml/confirmPopUp.fxml";
+    public static String dashboard = "/fxml/DashBoard.fxml";
+    public static String menu = "/fxml/Menu.fxml";
 
     static Stage stageMAin;
     static Stage popupStage;

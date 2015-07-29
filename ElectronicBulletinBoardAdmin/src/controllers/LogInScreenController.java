@@ -122,9 +122,14 @@ public class LogInScreenController implements Initializable {
 
     }
 
+    @FXML
     public void showRecoveryPopup() throws IOException {
-        FXMLLoader popuploader = new FXMLLoader(getClass().getResource(StuffHolder.passwordRecovery));
-        Pane popupPane = (Pane) popuploader.load(getClass().getResourceAsStream(StuffHolder.passwordRecovery));
+        FXMLLoader popuploader = new FXMLLoader(getClass().getResource(StuffHolder.msgpopup));
+        Pane popupPane = (Pane) popuploader.load(getClass().getResourceAsStream(StuffHolder.msgpopup));
+        PopupController popcon = (PopupController) popuploader.getController();
+        popcon.setPopupImage(new Image("/img/help.png"));
+        popcon.setPopupTitle("Password Recovery");
+        popcon.setPopupMsg("Your password and pin number has been sent to your email a*******45@gmail.com. Please make sure of it.");
         Scene sc = new Scene(popupPane);
         Stage stageHere = new Stage();
         stageHere.setScene(sc);
