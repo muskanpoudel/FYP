@@ -11,6 +11,7 @@ import helperClasses.GroupValidator;
 import helperClasses.LocalUtility;
 import helperClasses.NumberValidator;
 import helperClasses.NumericStringValidator;
+import helperClasses.ShowPopup;
 import helperClasses.StuffHolder;
 import helperClasses.Validator;
 import java.io.IOException;
@@ -56,6 +57,8 @@ public class LogInScreenController implements Initializable {
     Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
     Validator validator = new Validator();
     GroupValidator gv = new GroupValidator();
+
+    ShowPopup sp = new ShowPopup(); //for popups
 
     /**
      * Initializes the controller class.
@@ -124,22 +127,7 @@ public class LogInScreenController implements Initializable {
 
     @FXML
     public void showRecoveryPopup() throws IOException {
-        FXMLLoader popuploader = new FXMLLoader(getClass().getResource(StuffHolder.msgpopup));
-        Pane popupPane = (Pane) popuploader.load(getClass().getResourceAsStream(StuffHolder.msgpopup));
-        PopupController popcon = (PopupController) popuploader.getController();
-        popcon.setPopupImage(new Image("/img/help.png"));
-        popcon.setPopupTitle("Password Recovery");
-        popcon.setPopupMsg("Your password and pin number has been sent to your email a*******45@gmail.com. Please make sure of it.");
-        Scene sc = new Scene(popupPane);
-        Stage stageHere = new Stage();
-        stageHere.setScene(sc);
-        stageHere.setTitle("Forgot Password!!!");
-        stageHere.initOwner(StuffHolder.getStageMAin());
-        stageHere.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
-        stageHere.initModality(Modality.APPLICATION_MODAL);
-        stageHere.setResizable(false);
-        StuffHolder.setPopupStage(stageHere);
-        stageHere.showAndWait();
+        sp.showMessagePopup(new Image("/img/help.png"), "Password Recovery", "Your password and pin number has been sent to your email a*******45@gmail.com. Please make sure of it.", "Forgot Password!!!");
     }
 
     //muskan edited------------------------------------

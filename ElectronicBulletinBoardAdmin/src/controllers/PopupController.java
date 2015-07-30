@@ -29,7 +29,7 @@ public class PopupController implements Initializable {
     @FXML
     Label popupMsg;
     @FXML
-    Button popupOkBtn;
+    public Button popupOkBtn;
 
     @FXML
     public void hidePopup() {

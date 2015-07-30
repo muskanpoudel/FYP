@@ -7,6 +7,7 @@ package controllers;
 
 import electronicbulletinboardadmin.ElectronicBulletinBoardAdmin;
 import helperClasses.LocalUtility;
+import helperClasses.ShowPopup;
 import helperClasses.StuffHolder;
 import java.io.IOException;
 import java.net.URL;
@@ -43,40 +44,25 @@ public class HomeScreenController implements Initializable {
     StackPane stackPane;
     Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
 
+    ShowPopup sp = new ShowPopup();
+
     @FXML
     public void logout() throws Exception {
-        FXMLLoader popuploader = new FXMLLoader(getClass().getResource(StuffHolder.confirmpopup));
-        Pane popupPane = (Pane) popuploader.load(getClass().getResourceAsStream(StuffHolder.confirmpopup));
-        PopupController popcon = (PopupController) popuploader.getController();
-        popcon.setPopupImage(new Image("/img/logout.png"));
-        popcon.setPopupTitle("Conformation");
-        popcon.setPopupMsg("Are you sure you want to log out?");
-        popcon.popupOkBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                try {
-                    loadMainPane(StuffHolder.LogInScreen);
-                    StuffHolder.getPopupStage().close();
-                } catch (Exception ex) {
-                    Logger.getLogger(HomeScreenController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        sp.showConfirmPopup(new Image("/img/logout.png"), "Conformation", "Are you sure you want to log out?", "Logout?");
+        sp.okButton.setOnAction((ActionEvent e) -> {
+            try {
+                loadMainPane(StuffHolder.LogInScreen);
+                StuffHolder.getPopupStage().close();
+            } catch (Exception ex) {
+                Logger.getLogger(HomeScreenController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        Scene sc = new Scene(popupPane);
-        Stage stageHere = new Stage();
-        stageHere.setScene(sc);
-        stageHere.setTitle("Logout?");
-        stageHere.initOwner(StuffHolder.getStageMAin());
-        stageHere.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
-        stageHere.initModality(Modality.APPLICATION_MODAL);
-        stageHere.setResizable(false);
-        StuffHolder.setPopupStage(stageHere);
-        stageHere.showAndWait();
 
     }
 
     @FXML
     public void toggleBtnDash() {
+        dashtogglebtn.setSelected(true);
         try {
             if (menutogglebtn.isSelected()) {
                 menutogglebtn.setSelected(false);
@@ -91,6 +77,7 @@ public class HomeScreenController implements Initializable {
 
     @FXML
     public void toggleBtnMenu() {
+        menutogglebtn.setSelected(true);
         try {
             if (dashtogglebtn.isSelected()) {
                 dashtogglebtn.setSelected(false);

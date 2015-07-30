@@ -8,7 +8,6 @@ package electronicbulletinboardadmin;
 import electronicbulletinboardadmin.preloader.ElectronicBulletinBoardAdmin_Preloader;
 import helperClasses.LocalUtility;
 import helperClasses.StuffHolder;
-import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -29,7 +28,7 @@ import javafx.stage.Stage;
  */
 public class ElectronicBulletinBoardAdmin extends Application {
 
-    Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
+   // Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
     FXMLLoader loader;
 
     @Override
@@ -58,6 +57,7 @@ public class ElectronicBulletinBoardAdmin extends Application {
         try {
             Scene scene = createScene(loadMainPane());
             stage.setScene(scene);
+            stage.setMaximized(true);
             stage.setTitle("Electronic Bulletin Board System. Admin Interface.");
             stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
             StuffHolder.setStageMAin(stage);
@@ -80,7 +80,8 @@ public class ElectronicBulletinBoardAdmin extends Application {
     }
 
     public Scene createScene(Pane pane) {
-        Scene scene = new Scene(pane, visualBounds.getWidth(), visualBounds.getHeight());
+     //   Scene scene = new Scene(pane, visualBounds.getWidth(), visualBounds.getHeight());
+        Scene scene = new Scene(pane);
         Properties pro = LocalUtility.getProperty();
         String css = ElectronicBulletinBoardAdmin.class.getResource(pro.getProperty("cssfile").toString()).toExternalForm();
         scene.getStylesheets().clear();
