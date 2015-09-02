@@ -8,26 +8,120 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="controllers.DashBoardController">
+<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashBoardController">
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
    <children>
-      <AreaChart layoutX="33.0" layoutY="33.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </AreaChart>
-      <BarChart layoutX="734.0" layoutY="33.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <ScrollPane prefHeight="701.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <FlowPane hgap="5.0" prefWidth="1366.0" vgap="5.0">
+               <children>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="296.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="53.0" prefHeight="318.0" prefWidth="357.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="296.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="53.0" prefHeight="318.0" prefWidth="357.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="290.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="53.0" prefHeight="318.0" prefWidth="357.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="295.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="83.0" prefHeight="318.0" prefWidth="357.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="296.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="79.0" prefHeight="318.0" prefWidth="357.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane id="titlePane" animated="false" collapsible="false" prefHeight="450.0" prefWidth="450.0" text="Total SMS Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ComboBox layoutX="292.0" layoutY="2.0" prefWidth="150.0" />
+                              <BarChart layoutX="46.0" layoutY="59.0" prefHeight="318.0" prefWidth="357.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </FlowPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

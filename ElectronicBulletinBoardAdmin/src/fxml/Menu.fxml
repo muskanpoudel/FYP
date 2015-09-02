@@ -7,11 +7,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="controllers.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
    <children>
-      <Button layoutX="178.0" layoutY="181.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="Button" />
+      <Button layoutX="228.0" layoutY="104.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 1" />
+      <Button layoutX="546.0" layoutY="108.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 2" />
+      <Button layoutX="858.0" layoutY="104.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 3" />
+      <Button layoutX="228.0" layoutY="384.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 4" />
+      <Button layoutX="546.0" layoutY="388.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 5" />
+      <Button layoutX="858.0" layoutY="384.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 6" />
    </children>
 </AnchorPane>

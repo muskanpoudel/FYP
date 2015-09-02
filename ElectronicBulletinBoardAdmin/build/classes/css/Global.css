@@ -106,3 +106,17 @@
     -fx-background-color: #2ecc71;
     -fx-border-color: #2ecc71;
 }
+
+
+//titlepanes from dashboard
+/**
+#titlePane > .title{
+    -fx-background-color: #3A536B;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+#titlepane > *.content {
+    -fx-background-color: red;
+}*/
+
