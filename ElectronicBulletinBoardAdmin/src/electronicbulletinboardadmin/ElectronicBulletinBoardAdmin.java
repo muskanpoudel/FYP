@@ -5,7 +5,7 @@
  */
 package electronicbulletinboardadmin;
 
-import electronicbulletinboardadmin.preloader.ElectronicBulletinBoardAdmin_Preloader;
+//import electronicbulletinboardadmin.preloader.ElectronicBulletinBoardAdmin_Preloader;
 import helperClasses.LocalUtility;
 import helperClasses.StuffHolder;
 import java.io.IOException;
@@ -15,11 +15,9 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -46,7 +44,7 @@ public class ElectronicBulletinBoardAdmin extends Application {
                     });
 
                 } catch (Exception ex) {
-                    Logger.getLogger(ElectronicBulletinBoardAdmin_Preloader.class.getName()).log(Level.SEVERE, null, ex);
+                   // Logger.getLogger(ElectronicBulletinBoardAdmin_Preloader.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }.start();

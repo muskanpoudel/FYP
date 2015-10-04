@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ContentFeederViewPageController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" text="Content Feeder Information">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="131.0" text="Username:" />
+      <Label layoutX="135.0" layoutY="166.0" text="Password:" />
+      <Label layoutX="135.0" layoutY="201.0" text="Confirm Password:" />
+      <Label layoutX="135.0" layoutY="236.0" text="Email Address:" />
+      <Label layoutX="135.0" layoutY="272.0" text="First Name:" />
+      <Label layoutX="135.0" layoutY="307.0" text="Last Name:" />
+      <Button layoutX="484.0" layoutY="517.0" mnemonicParsing="false" prefWidth="146.0" text="Edit  Content Feeder" />
+      <Button layoutX="641.0" layoutY="517.0" mnemonicParsing="false" prefWidth="146.0" text="Delete  Content Feeder" />
+      <Button layoutX="797.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="158.0" text="Suspend  Content Feeders" />
+      <Label layoutX="135.0" layoutY="342.0" text="Status:" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="755.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #BDC3C7;">
+         <graphic>
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Label>
+   </children>
+</AnchorPane>

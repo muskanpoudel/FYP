@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SusContentFeederPageController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Supended Content Feeders">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="52.0" text="Welcome to suspended content feeders page. Suspended users can be managed through this page." />
+   </children>
+</AnchorPane>

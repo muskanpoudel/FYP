@@ -31,7 +31,7 @@
          <bottom>
             <Pane prefHeight="120.0" prefWidth="428.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button id="logInOk" fx:id="popupOkBtn" layoutX="201.0" layoutY="74.0" mnemonicParsing="false" onAction="#hidePopup" prefHeight="33.0" prefWidth="148.0" text="OK">
+                  <Button id="popupOk" fx:id="popupOkBtn" layoutX="201.0" layoutY="74.0" mnemonicParsing="false" onAction="#hidePopup" prefHeight="33.0" prefWidth="148.0" text="OK">
                      <font>
                         <Font name="Segoe UI" size="16.0" />
                      </font>

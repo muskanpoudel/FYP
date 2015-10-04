@@ -5,13 +5,9 @@
  */
 package helperClasses;
 
-import controllers.HomeScreenController;
+import controllers.BulletinBoardPopUpController;
 import controllers.PopupController;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -66,5 +62,21 @@ public class ShowPopup {
         StuffHolder.setPopupStage(stageHere);
         stageHere.show();
     }
-
+    /*
+     public void showBulletinBoardPopup(String Title) throws IOException {
+     FXMLLoader popuploader = new FXMLLoader(getClass().getResource(StuffHolder.BulletinBoardpopup));
+     Pane popupPane = (Pane) popuploader.load(getClass().getResourceAsStream(StuffHolder.BulletinBoardpopup));
+     //  BulletinBoardPopUpController popcon = (BulletinBoardPopUpController) popuploader.getController();
+     Scene sc = new Scene(popupPane);
+     Stage stageHere = new Stage();
+     stageHere.setScene(sc);
+     stageHere.setTitle(Title);
+     stageHere.initOwner(StuffHolder.getStageMAin());
+     stageHere.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
+     stageHere.initModality(Modality.APPLICATION_MODAL);
+     stageHere.setResizable(false);
+     StuffHolder.setPopupStage(stageHere);
+     stageHere.show();
+     }
+     */
 }

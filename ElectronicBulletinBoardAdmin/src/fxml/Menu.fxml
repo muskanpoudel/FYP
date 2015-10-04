@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
@@ -7,16 +10,182 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="701.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
    <children>
-      <Button layoutX="228.0" layoutY="104.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 1" />
-      <Button layoutX="546.0" layoutY="108.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 2" />
-      <Button layoutX="858.0" layoutY="104.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 3" />
-      <Button layoutX="228.0" layoutY="384.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 4" />
-      <Button layoutX="546.0" layoutY="388.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 5" />
-      <Button layoutX="858.0" layoutY="384.0" mnemonicParsing="false" prefHeight="211.0" prefWidth="226.0" text="menu 6" />
+      <SplitPane id="splitpane" dividerPositions="0.19222139117427076" layoutX="14.0" layoutY="43.0" prefHeight="569.0" prefWidth="1339.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TreeView id="treeView" fx:id="treeView" prefHeight="567.0" prefWidth="254.0" stylesheets="@../css/Global.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <StackPane fx:id="menuPageStackPane" prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <GridPane id="AnchorPane" alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToBulletinBoardPage" onMouseEntered="#bulletinMouseEnter" onMouseExited="#bulletinMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgBulletin" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/BB1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnBulletinBoardlbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="Bulletin Board" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" mnemonicParsing="false" onAction="#goToSettingPage" onMouseEntered="#settingMouseEnter" onMouseExited="#settingMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgSetting" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/setting1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnGeneralSettinglbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="General Setting" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" mnemonicParsing="false" onAction="#goToContentFeederPage" onMouseEntered="#userMouseEnter" onMouseExited="#userMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgUser" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/user1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnContentFeederslbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="Content Feeders" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" mnemonicParsing="false" onAction="#goToSusContentFeederPage" onMouseEntered="#susUserMouseEnter" onMouseExited="#susUserMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgSusUser" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/susUser1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnSusContentFeederlbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="Suspended Content Feeders" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" mnemonicParsing="false" onAction="#goToBulletinPage" onMouseEntered="#infoMouseEnter" onMouseExited="#infoMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgInfo" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/bulletin1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnBulletinslbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="Bulletins" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Button id="menuButton" layoutX="90.0" layoutY="52.0" mnemonicParsing="false" onAction="#goToSmsSettingPage" onMouseEntered="#smsMouseEnter" onMouseExited="#smsMouseExit" prefHeight="180.0" prefWidth="180.0">
+                                 <graphic>
+                                    <ImageView fx:id="menuImgSms" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/sms1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Label fx:id="menuBtnSMSSettinglbl" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="242.0" prefHeight="17.0" prefWidth="180.0" text="SMS Setting" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </GridPane>
+               </children>
+            </StackPane>
+        </items>
+      </SplitPane>
+      <FlowPane layoutX="48.0" layoutY="11.0" prefHeight="24.0" prefWidth="1305.0">
+         <children>
+            <Hyperlink id="hyperlink" text="Menu" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="/" />
+            <Hyperlink id="hyperlink" text="Bulletin Board" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="/" />
+            <Hyperlink id="hyperlink" text="Add Bulletin Board" />
+         </children>
+      </FlowPane>
+      <Button id="goBack" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMousePressed="#goBackPressed" onMouseReleased="#goBackReleased" prefHeight="30.0" prefWidth="30.0">
+         <graphic>
+            <ImageView fx:id="gobackImg" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/goBack.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

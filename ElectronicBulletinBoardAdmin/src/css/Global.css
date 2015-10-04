@@ -107,6 +107,21 @@
     -fx-border-color: #2ecc71;
 }
 
+//popups
+#popupOk{
+    -fx-background-radius: 90;
+    -fx-border-radius: 90;
+    -fx-background-color: #F4F4F4;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+}
+#popupOk:hover{
+    -fx-border-color: #2ecc71;
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: #ecf0f1;
+    -fx-border-radius: 90;
+    -fx-background-radius: 90;
+}
 
 //titlepanes from dashboard
 /**
@@ -120,3 +135,38 @@
     -fx-background-color: red;
 }*/
 
+
+
+//this one for Menu Screen
+#AnchorPane{
+    -fx-background-color: white;
+}
+#menuButton{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #2C3E50;
+    -fx-border-color: #2C3E50;    
+}
+#treeView{
+    -fx-font: 12px "Segoe UI";
+}*
+#splitpane:vertical > * > .split-pane-divider {
+    -fx-border-color:  #BDC3C7;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0; 
+    -fx-background-color: red;
+    -fx-background-insets: 0;
+}
+#goBack{
+    -fx-background-color: transparent;
+    -fx-background-radius: 90;
+    -fx-border-radius: 90;
+}
+#goBack:pressed{
+    -fx-background-color: #2C3E50;
+    -fx-background-radius: 90;
+    -fx-border-radius: 90;
+}
+#hyperlink{
+    -fx-text-fill:black;
+}

@@ -5,10 +5,7 @@
  */
 package electronicbulletinboardadmin.preloader;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.animation.FadeTransition;
-import javafx.application.Platform;
 import javafx.application.Preloader;
 import javafx.concurrent.Task;
 import javafx.concurrent.Worker;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BulletinBoardPageController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <TableView layoutX="18.0" layoutY="118.0" prefHeight="440.0" prefWidth="1040.0">
+        <columns>
+          <TableColumn prefWidth="160.0" text="Bulletinboard ID" />
+          <TableColumn prefWidth="361.0" text="Bulletinboard Name" />
+            <TableColumn prefWidth="518.0" text="Bulletinboard Location" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="14.0" text="Bulletin Boards">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="52.0" text="Welcome to bulletin board page. Here you can add new bulletin boards to the system, edit, delete and view existing bulletin boards." />
+      <Button layoutX="18.0" layoutY="82.0" mnemonicParsing="false" onAction="#addBulletinBoard" text="Add new Bulletinboard" />
+      <Button layoutX="169.0" layoutY="82.0" mnemonicParsing="false" onAction="#viewBulletinInfo" text="View Bulletinboard" />
+      <Button layoutX="299.0" layoutY="82.0" mnemonicParsing="false" text="Edit Bulletinboard" />
+      <Button layoutX="427.0" layoutY="82.0" mnemonicParsing="false" text="Delete Bulletinboard" />
+   </children>
+</AnchorPane>
