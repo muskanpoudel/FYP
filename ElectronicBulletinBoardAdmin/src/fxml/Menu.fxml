@@ -179,7 +179,7 @@
             <Hyperlink id="hyperlink" text="Add Bulletin Board" />
          </children>
       </FlowPane>
-      <Button id="goBack" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMousePressed="#goBackPressed" onMouseReleased="#goBackReleased" prefHeight="30.0" prefWidth="30.0">
+      <Button id="goBackbtn" layoutX="14.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMousePressed="#goBackPressed" onMouseReleased="#goBackReleased" prefHeight="30.0" prefWidth="30.0" stylesheets="@../css/Global.css">
          <graphic>
             <ImageView fx:id="gobackImg" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>

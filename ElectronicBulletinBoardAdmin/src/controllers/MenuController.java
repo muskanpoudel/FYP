@@ -118,6 +118,8 @@ public class MenuController implements Initializable {
     @FXML
     public void goBackReleased() {
         gobackImg.setImage(ImageMaker("goBack.png"));
+        //todo
+        //load previously visited page
     }
 
     //creates and returns image

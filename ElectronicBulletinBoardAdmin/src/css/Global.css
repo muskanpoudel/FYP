@@ -147,9 +147,12 @@
     -fx-background-color: #2C3E50;
     -fx-border-color: #2C3E50;    
 }
+#otherButtons{
+    
+}
 #treeView{
     -fx-font: 12px "Segoe UI";
-}*
+}
 #splitpane:vertical > * > .split-pane-divider {
     -fx-border-color:  #BDC3C7;
     -fx-border-radius: 0;
@@ -157,12 +160,12 @@
     -fx-background-color: red;
     -fx-background-insets: 0;
 }
-#goBack{
+#goBackbtn{
     -fx-background-color: transparent;
     -fx-background-radius: 90;
     -fx-border-radius: 90;
 }
-#goBack:pressed{
+#goBackbtn:pressed{
     -fx-background-color: #2C3E50;
     -fx-background-radius: 90;
     -fx-border-radius: 90;
