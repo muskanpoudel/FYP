@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="875.0" style="-fx-background-color: #D2D2D2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ContentAddimageController">
+   <stylesheets>
+      <URL value="@/css/contentfeederfxml.css" />
+   </stylesheets>
+   <children>
+      <Label layoutX="24.0" layoutY="10.0" text="Add your image into Bulletin Board(s) from this page">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="48.0" text="Select Image:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="117.0" layoutY="48.0" text="(For better result, image resolution should be 765 X 565)" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="67.0" prefHeight="265.0" prefWidth="465.0" style="-fx-border-color: #999999; -fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="265.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/a.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Button id="appButton" layoutX="24.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Browse" />
+      <Label layoutX="503.0" layoutY="48.0" text="Post Date:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="503.0" layoutY="88.0" text="Expiry date:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="503.0" layoutY="128.0" text="Select Bulletin Board(s):">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker editable="false" layoutX="685.0" layoutY="44.0" />
+      <DatePicker editable="false" layoutX="685.0" layoutY="84.0" />
+      <Button id="appButton" layoutX="722.0" layoutY="306.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Done" />
+      <Button id="appButton" layoutX="800.0" layoutY="306.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
+      <FlowPane fx:id="flowPane" hgap="10.0" layoutX="503.0" layoutY="145.0" prefHeight="153.0" prefWidth="358.0" vgap="10.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </FlowPane>
+   </children>
+</AnchorPane>

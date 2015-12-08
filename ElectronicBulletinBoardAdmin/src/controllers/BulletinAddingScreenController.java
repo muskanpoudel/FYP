@@ -9,6 +9,8 @@ import helperClasses.StuffHolder;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,62 +30,33 @@ public class BulletinAddingScreenController implements Initializable {
     @FXML
     StackPane addBulletinStackPane;
     @FXML
-    ToggleButton txtAndImageTB, imageTB, videoTB, linkTB, powerPointTB;
-
-    @FXML
-    public void txtAndImageScreen() throws IOException {
-        txtAndImageTB.setSelected(true);
-        imageTB.setSelected(false);
-        videoTB.setSelected(false);
-        linkTB.setSelected(false);
-        powerPointTB.setSelected(false);
-
-        loadDesiredPageFromMenu(StuffHolder.AddBulletinTxtAndImage);
-    }
+    ToggleButton imageTB, headlineTB, textTB;
 
     @FXML
     public void imageScreen() throws IOException {
-        txtAndImageTB.setSelected(false);
         imageTB.setSelected(true);
-        videoTB.setSelected(false);
-        linkTB.setSelected(false);
-        powerPointTB.setSelected(false);
+        headlineTB.setSelected(false);
+        textTB.setSelected(false);
 
         loadDesiredPageFromMenu(StuffHolder.AddBulletinImage);
     }
 
     @FXML
-    public void videoScreen() throws IOException {
-        txtAndImageTB.setSelected(false);
+    public void headlineScreen() throws IOException {
         imageTB.setSelected(false);
-        videoTB.setSelected(true);
-        linkTB.setSelected(false);
-        powerPointTB.setSelected(false);
+        headlineTB.setSelected(true);
+        textTB.setSelected(false);
 
-        loadDesiredPageFromMenu(StuffHolder.AddBulletinVideo);
-
+        loadDesiredPageFromMenu(StuffHolder.AddBulletinHeadline);
     }
 
     @FXML
-    public void linkScreen() throws IOException {
-        txtAndImageTB.setSelected(false);
+    public void textScreen() throws IOException {
         imageTB.setSelected(false);
-        videoTB.setSelected(false);
-        linkTB.setSelected(true);
-        powerPointTB.setSelected(false);
+        headlineTB.setSelected(false);
+        textTB.setSelected(true);
 
-        loadDesiredPageFromMenu(StuffHolder.AddBulletinLink);
-    }
-
-    @FXML
-    public void powerPointScreen() throws IOException {
-        txtAndImageTB.setSelected(false);
-        imageTB.setSelected(false);
-        videoTB.setSelected(false);
-        linkTB.setSelected(false);
-        powerPointTB.setSelected(true);
-
-        loadDesiredPageFromMenu(StuffHolder.AddBulletinPowerPoint);
+        loadDesiredPageFromMenu(StuffHolder.AddBulletinText);
 
     }
 
@@ -94,7 +67,12 @@ public class BulletinAddingScreenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            imageTB.setSelected(true);
+            imageScreen();
+        } catch (IOException ex) {
+            Logger.getLogger(BulletinAddingScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

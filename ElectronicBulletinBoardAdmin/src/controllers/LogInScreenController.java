@@ -33,7 +33,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -44,7 +43,7 @@ import javafx.stage.Stage;
  */
 public class LogInScreenController implements Initializable {
 
-    FXMLLoader loader;
+//    FXMLLoader loader;
     @FXML
     Label errorlbl, internetlbl, databaselbl;
     @FXML
@@ -132,7 +131,7 @@ public class LogInScreenController implements Initializable {
 
     //muskan edited------------------------------------
     private void loadMainPane(String fxmlPath) throws IOException, Exception {
-        loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
         //loader.setLocation(Class.class.getResource(ScreenNavigator.MainGUI));
         Pane mainPane = (Pane) loader.load(getClass().getResourceAsStream(fxmlPath));
         Scene sc = new Scene(mainPane, visualBounds.getWidth(), visualBounds.getHeight());

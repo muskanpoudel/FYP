@@ -33,9 +33,9 @@
          </font>
       </Label>
       <Label layoutX="18.0" layoutY="53.0" text="Welcome to Bulletin page. Here you can add new Bulletin(s) to the system, edit, delete and view existing Bulletins." />
-      <Button layoutX="19.0" layoutY="83.0" mnemonicParsing="false" onAction="#showBulletinAddingPage" text="Add new Bulletins" />
-      <Button layoutX="142.0" layoutY="83.0" mnemonicParsing="false" text="View Bulletins" />
-      <Button layoutX="243.0" layoutY="83.0" mnemonicParsing="false" text="Edit  Bulletins" />
-      <Button layoutX="342.0" layoutY="83.0" mnemonicParsing="false" text="Delete  Bulletins" />
+      <Button id="appButton" layoutX="19.0" layoutY="83.0" mnemonicParsing="false" onAction="#showBulletinAddingPage" text="Add new Bulletins" />
+      <Button id="appButton" layoutX="142.0" layoutY="83.0" mnemonicParsing="false" text="View Bulletins" />
+      <Button id="appButton" layoutX="243.0" layoutY="83.0" mnemonicParsing="false" text="Edit  Bulletins" />
+      <Button id="appButton" layoutX="342.0" layoutY="83.0" mnemonicParsing="false" text="Delete  Bulletins" />
    </children>
 </AnchorPane>

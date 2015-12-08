@@ -20,8 +20,9 @@
       </Label>
       <Label layoutX="18.0" layoutY="81.0" text="Name Of Bulletin Board:" />
       <Label layoutX="18.0" layoutY="118.0" text="Location Of Bulletin Board:" />
-      <TextField layoutX="199.0" layoutY="77.0" prefHeight="25.0" prefWidth="379.0" />
-      <TextField layoutX="199.0" layoutY="114.0" prefHeight="25.0" prefWidth="379.0" />
-      <Button layoutX="513.0" layoutY="151.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" text="Add" />
+      <TextField fx:id="Bbname" layoutX="199.0" layoutY="77.0" prefHeight="25.0" prefWidth="379.0" />
+      <TextField fx:id="Bblocation" layoutX="199.0" layoutY="114.0" prefHeight="25.0" prefWidth="379.0" />
+      <Button layoutX="513.0" layoutY="151.0" mnemonicParsing="false" onAction="#addBulletinBoard" prefHeight="25.0" prefWidth="65.0" text="Add" />
+      <Label fx:id="statusLbl" layoutX="199.0" layoutY="217.0" />
    </children>
 </AnchorPane>

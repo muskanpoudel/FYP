@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="495.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BulletinController">
+    <stylesheets>
+        <URL value="@/css/contentfeederfxml.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="45.0" layoutY="70.0" mnemonicParsing="false" onAction="#addPressed" prefHeight="25.0" prefWidth="125.0" text="Add New" />
+      <Button layoutX="186.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Edit" />
+      <Button layoutX="329.0" layoutY="70.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Delete" />
+      <Label layoutX="45.0" layoutY="14.0" text="Manage Bulletins">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="45.0" layoutY="109.0" text="Bulletins you have added" underline="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TableView layoutX="45.0" layoutY="127.0" prefHeight="354.0" prefWidth="833.0">
+         <columns>
+            <TableColumn prefWidth="70.0" text="Bulletin ID" />
+            <TableColumn prefWidth="148.0" text="Bulletin Title" />
+            <TableColumn prefWidth="144.0" text="Notice Board ID" />
+            <TableColumn prefWidth="159.0" text="Notice Board Location" />
+            <TableColumn minWidth="0.0" prefWidth="165.0" text="Publish Date/Time" />
+            <TableColumn minWidth="0.0" prefWidth="145.0" text="Pause Interval" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

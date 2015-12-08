@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="1046.0" style="-fx-background-color: #D2D2D2;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddBulletinHeadlineController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" text="Add your headlines from this page.">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="24.0" layoutY="53.0" text="Headlines are text that moves from right to left on your bulletin board." />
+      <Label layoutX="26.0" layoutY="128.0" text="Your Headline:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="24.0" layoutY="150.0" prefHeight="266.0" prefWidth="442.0" promptText="Your message here..." wrapText="true" />
+      <Label layoutX="116.0" layoutY="129.0" text="(100 Words)" />
+      <Label layoutX="204.0" layoutY="130.0" text="*** Please reduce your words." textFill="#ff0202" />
+      <Label layoutX="553.0" layoutY="130.0" text="Post Date:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="170.0" text="Expiry date:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="210.0" text="Select Bulletin Board(s):">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker editable="false" layoutX="735.0" layoutY="126.0" />
+      <DatePicker editable="false" layoutX="735.0" layoutY="166.0" />
+      <Button id="appButton" layoutX="823.0" layoutY="396.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Done" />
+      <Button id="appButton" layoutX="901.0" layoutY="396.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
+      <FlowPane fx:id="flowPane" hgap="10.0" layoutX="553.0" layoutY="227.0" prefHeight="153.0" prefWidth="415.0" vgap="10.0">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </FlowPane>
+   </children>
+</AnchorPane>

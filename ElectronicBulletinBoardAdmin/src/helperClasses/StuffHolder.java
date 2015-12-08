@@ -32,11 +32,9 @@ public class StuffHolder {
     public static String BulletinBoardInformation = "/fxml/BulletinBoardViewPage.fxml";
 
     public static String BulletinAddingScreen = "/fxml/BulletinAddingScreen.fxml";
-    public static String AddBulletinTxtAndImage = "/fxml/AddBulletinTxtAndImg.fxml";
     public static String AddBulletinImage = "/fxml/AddBulletinImg.fxml";
-    public static String AddBulletinVideo = "/fxml/AddBulletinVideo.fxml";
-    public static String AddBulletinLink = "/fxml/AddBulletinLink.fxml";
-    public static String AddBulletinPowerPoint = "/fxml/AddBulletinPowerPoint.fxml";
+    public static String AddBulletinHeadline = "/fxml/AddBulletinHeadline.fxml";
+    public static String AddBulletinText = "/fxml/AddBulletinText.fxml";
 
     public static String ContentFeederAddingScreen = "/fxml/ContentFeederAddingPage.fxml";
     public static String ContentFeederViewScreen = "/fxml/contentFeederViewPage.fxml";

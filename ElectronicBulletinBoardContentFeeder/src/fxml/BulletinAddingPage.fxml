@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BulletinAddingPageController">
+   <stylesheets>
+      <URL value="@/css/contentfeederfxml.css" />
+   </stylesheets>
+   <children>
+      <ToggleButton id="appButton" fx:id="imageTB" layoutX="16.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#imageScreen" prefHeight="30.0" prefWidth="98.0" text="Image" />
+      <ToggleButton id="appButton" fx:id="headlineTB" layoutX="114.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#headlineScreen" prefHeight="30.0" prefWidth="98.0" text="Headline" />
+      <ToggleButton id="appButton" fx:id="textTB" layoutX="212.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#textScreen" prefHeight="30.0" prefWidth="98.0" text="Text" />
+      <Label layoutX="14.0" layoutY="14.0" text="Add Contents">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="45.0" text="Add various contents to bulletin board." />
+      <StackPane fx:id="addBulletinStackPane" layoutX="16.0" layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="875.0" />
+   </children>
+</AnchorPane>

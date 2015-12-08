@@ -5,9 +5,17 @@
  */
 package controllers;
 
+import helperClasses.Database;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
+import javafx.scene.layout.FlowPane;
 
 /**
  * FXML Controller class
@@ -16,12 +24,22 @@ import javafx.fxml.Initializable;
  */
 public class AddBulletinImgController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    FlowPane flowPane;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        try {
+            ResultSet rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.noticeboard");
+
+            while (rs.next()) {
+                CheckBox cb = new CheckBox(rs.getString("noticeboardname") + " (" + rs.getString("noticeboardlocation") + ")");
+                flowPane.getChildren().add(cb);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AddBulletinHeadlineController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
