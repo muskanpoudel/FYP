@@ -75,52 +75,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="2.0" layoutY="4.0" prefHeight="571.0" prefWidth="211.0" spacing="8.0">
-               <children>
-                  <Pane prefHeight="185.0" prefWidth="200.0" style="-fx-background-color: #E54D66;">
-                     <children>
-                        <Label alignment="CENTER" layoutY="42.0" prefHeight="143.0" prefWidth="211.0" style="-fx-text-fill: white;" text="Assignments deadline on September 25, 2015. Students are required to submit their work before or at the deadline." textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Segoe UI" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: #CC344D; -fx-text-fill: white;" text="IT (Computing)">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="185.0" prefWidth="200.0" style="-fx-background-color: #E54D66;">
-                     <children>
-                        <Label alignment="CENTER" layoutY="42.0" prefHeight="143.0" prefWidth="211.0" style="-fx-text-fill: white;" text="Assignments deadline on September 25, 2015. Students are required to submit their work before or at the deadline." textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Segoe UI" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: #CC344D; -fx-text-fill: white;" text="IT (Multimedia)">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="185.0" prefWidth="200.0" style="-fx-background-color: #14CDD1;">
-                     <children>
-                        <Label alignment="CENTER" layoutY="42.0" prefHeight="143.0" prefWidth="211.0" style="-fx-text-fill: white;" text="Assignments deadline on September 25, 2015. Students are required to submit their work before or at the deadline." textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Segoe UI" size="17.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: #11A9AC; -fx-text-fill: white;" text="A Level (Business)">
-                           <font>
-                              <Font name="Segoe UI" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
+            <VBox fx:id="vbox" layoutX="2.0" layoutY="4.0" prefHeight="571.0" prefWidth="211.0" spacing="8.0" />
          </children>
       </Pane>
    </center>
@@ -190,11 +145,7 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="3.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="774.0" style="-fx-border-color: #515a7b; -fx-background-color: white;" textAlignment="CENTER">
                <graphic>
-                  <ImageView fitHeight="565.0" fitWidth="765.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/ca.jpg" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="imgView" fitHeight="565.0" fitWidth="765.0" pickOnBounds="true" preserveRatio="true" />
                </graphic>
             </Label>
          </children>

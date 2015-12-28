@@ -37,9 +37,10 @@ public class BulletinBoardController implements Initializable {
         pane.setStyle("-fx-background-color:#c7b29b");
         Image img = new Image("/img/tv.png");
         ImageView imgView = new ImageView(img);
-        imgView.setFitHeight(80);
-        imgView.setFitWidth(80);
-        imgView.setLayoutX(14);
+        imgView.setOpacity(0.1);
+        imgView.setFitHeight(100);
+        imgView.setFitWidth(100);
+        imgView.setLayoutX(170.0);
         imgView.setLayoutY(20);
         pane.getChildren().add(imgView);
         return pane;
@@ -61,11 +62,11 @@ public class BulletinBoardController implements Initializable {
                     id.setFont(Font.font("System", FontWeight.BOLD, 12));
                     name.setFont(Font.font("System", FontWeight.BOLD, 12));
                     place.setFont(Font.font("System", FontWeight.BOLD, 12));
-                    id.setLayoutX(106);
+                    id.setLayoutX(15);
                     id.setLayoutY(25);
-                    name.setLayoutX(106);
+                    name.setLayoutX(15);
                     name.setLayoutY(50);
-                    place.setLayoutX(106);
+                    place.setLayoutX(15);
                     place.setLayoutY(75);
 
                     bbPane.getChildren().add(id);

@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="controllers.BulletinBoardViewPageController">
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BulletinBoardViewPageController">
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
@@ -19,11 +19,11 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="84.0" layoutY="138.0" text="Name:" />
-      <Label layoutX="84.0" layoutY="164.0" text="Location:" />
-      <Label layoutX="84.0" layoutY="191.0" text="Information Pending:" />
-      <Label layoutX="84.0" layoutY="218.0" text="Information Shown:" />
-      <Button layoutX="82.0" layoutY="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="145.0" prefWidth="225.0">
+      <Label layoutX="386.0" layoutY="220.0" text="Name:" />
+      <Label layoutX="386.0" layoutY="246.0" text="Location:" />
+      <Label layoutX="386.0" layoutY="273.0" text="Information Pending:" />
+      <Label layoutX="386.0" layoutY="300.0" text="Information Shown:" />
+      <Button id="appButton" layoutX="49.0" layoutY="118.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="300.0" prefWidth="300.0" style="-fx-background-radius: 90; -fx-border-radus: 90;">
          <graphic>
             <ImageView fitHeight="145.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -32,6 +32,10 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="94.0" layoutY="432.0" text="Real time view of Bulletin Board" />
+      <Label layoutX="97.0" layoutY="435.0" text="Real time view of Bulletin Board" />
+      <Label fx:id="name" layoutX="525.0" layoutY="220.0" />
+      <Label fx:id="location" layoutX="525.0" layoutY="246.0" />
+      <Label fx:id="pendingInfo" layoutX="525.0" layoutY="275.0" />
+      <Label fx:id="shownInfo" layoutX="525.0" layoutY="300.0" />
    </children>
 </AnchorPane>

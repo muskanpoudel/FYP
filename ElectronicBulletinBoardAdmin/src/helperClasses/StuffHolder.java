@@ -7,6 +7,10 @@ package helperClasses;
 
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import pojo.BulletinBoards;
+import pojo.BulletinInfo;
+import pojo.ContentFeeders;
+import pojo.CurrentAdmin;
 
 /**
  *
@@ -50,6 +54,22 @@ public class StuffHolder {
     //StackPanes
     static StackPane mainHomeScreenStackPane;
     static StackPane menuScreenStackPane;
+
+    //storing admin data
+    static CurrentAdmin thisAdmin;
+
+    //is edit bulletinboard pressed?
+    static boolean editbulletinboard = false;
+    //storing bb information
+    static BulletinBoards bulletinboardinfo;
+    //is edit contentFeeder pressed?
+    static boolean editcontentFeeder = false;
+    //storing contentFeeder information
+    static ContentFeeders ContetFeeders;
+    //is edit bulletin pressed
+    static boolean editbulletin = false;
+    //storing bulletin info
+    static BulletinInfo bulletinInformation;
 
     public static Stage getStageMAin() {
         return stageMAin;
@@ -108,4 +128,64 @@ public class StuffHolder {
         StuffHolder.menuScreenStackPane = menuScreenStackPane;
     }
 
+    public static CurrentAdmin getThisAdmin() {
+        return thisAdmin;
+    }
+
+    public static void setThisAdmin(CurrentAdmin thisAdmin) {
+        StuffHolder.thisAdmin = thisAdmin;
+    }
+
+    //bulletinboards
+    public static boolean isEditbulletinboard() {
+        return editbulletinboard;
+    }
+
+    public static void setEditbulletinboard(boolean editbulletinboard) {
+        StuffHolder.editbulletinboard = editbulletinboard;
+    }
+
+    public static BulletinBoards getBulletinboardinfo() {
+        return bulletinboardinfo;
+    }
+
+    public static void setBulletinboardinfo(BulletinBoards bulletinboardinfo) {
+        StuffHolder.bulletinboardinfo = bulletinboardinfo;
+    }
+
+    //content feeders
+    public static boolean isEditcontentFeeder() {
+        return editcontentFeeder;
+    }
+
+    public static void setEditcontentFeeder(boolean editcontentFeeder) {
+        StuffHolder.editcontentFeeder = editcontentFeeder;
+    }
+
+    public static ContentFeeders getContetFeeders() {
+        return ContetFeeders;
+    }
+
+    public static void setContetFeeders(ContentFeeders ContetFeeders) {
+        StuffHolder.ContetFeeders = ContetFeeders;
+    }
+
+    //bulletins
+
+    public static boolean isEditbulletin() {
+        return editbulletin;
+    }
+
+    public static void setEditbulletin(boolean editbulletin) {
+        StuffHolder.editbulletin = editbulletin;
+    }
+
+    public static BulletinInfo getBulletinInformation() {
+        return bulletinInformation;
+    }
+
+    public static void setBulletinInformation(BulletinInfo bulletinInformation) {
+        StuffHolder.bulletinInformation = bulletinInformation;
+    }
+    
 }

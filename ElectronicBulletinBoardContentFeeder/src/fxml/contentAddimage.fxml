@@ -15,7 +15,7 @@
       <URL value="@/css/contentfeederfxml.css" />
    </stylesheets>
    <children>
-      <Label layoutX="24.0" layoutY="10.0" text="Add your image into Bulletin Board(s) from this page">
+      <Label fx:id="titleOfPage" layoutX="24.0" layoutY="10.0" text="Add your image into Bulletin Board(s) from this page">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -28,14 +28,14 @@
       <Label layoutX="117.0" layoutY="48.0" text="(For better result, image resolution should be 765 X 565)" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="67.0" prefHeight="265.0" prefWidth="465.0" style="-fx-border-color: #999999; -fx-background-color: white;">
          <graphic>
-            <ImageView fitHeight="265.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageviewer" fitHeight="265.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/a.jpg" />
                </image>
             </ImageView>
          </graphic>
       </Label>
-      <Button id="appButton" layoutX="24.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Browse" />
+      <Button id="appButton" layoutX="24.0" layoutY="343.0" mnemonicParsing="false" onAction="#photoChooser" prefHeight="25.0" prefWidth="83.0" text="Browse" />
       <Label layoutX="503.0" layoutY="48.0" text="Post Date:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -51,14 +51,16 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <DatePicker editable="false" layoutX="685.0" layoutY="44.0" />
-      <DatePicker editable="false" layoutX="685.0" layoutY="84.0" />
-      <Button id="appButton" layoutX="722.0" layoutY="306.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Done" />
+      <DatePicker fx:id="postDate" editable="false" layoutX="685.0" layoutY="44.0" />
+      <DatePicker fx:id="expireDate" editable="false" layoutX="685.0" layoutY="84.0" />
+      <Button id="appButton" fx:id="addupdateBtn" layoutX="722.0" layoutY="306.0" mnemonicParsing="false" onAction="#addImageToDatabase" prefHeight="33.0" prefWidth="67.0" text="Done" />
       <Button id="appButton" layoutX="800.0" layoutY="306.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
       <FlowPane fx:id="flowPane" hgap="10.0" layoutX="503.0" layoutY="145.0" prefHeight="153.0" prefWidth="358.0" vgap="10.0">
          <padding>
             <Insets top="10.0" />
          </padding>
       </FlowPane>
+      <Label fx:id="imagelbl" layoutX="275.0" layoutY="347.0" />
+      <TextField fx:id="imgTitle" layoutX="117.0" layoutY="343.0" promptText="Title of Image" />
    </children>
 </AnchorPane>

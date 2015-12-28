@@ -35,6 +35,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import pojo.CurrentAdmin;
 
 /**
  * FXML Controller class
@@ -102,12 +103,20 @@ public class LogInScreenController implements Initializable {
         if (gv.validate() && validator.validate()) {
             try {
                 //if database is sucessfully connected info about admin is gathered
-                ResultSet rs = Database.executeQuery("select username, password, pin from electronic_bulletin_board.admin where username=\"" + usernamefld.getText() + "\" and pin=" + pinfld.getText() + " and password = \"" + passwordfld.getText() + "\";");
+                ResultSet rs = Database.executeQuery("select * from electronic_bulletin_board.admin where username=\"" + usernamefld.getText() + "\" and pin=" + pinfld.getText() + " and password = \"" + passwordfld.getText() + "\";");
                 if (!rs.isBeforeFirst()) {
                     errorlbl.setText("Authentication failed. Please try again.");
                     errorlbl.setVisible(true);
                 } else {
                     errorlbl.setVisible(false);
+                    while (rs.next()) {
+                        CurrentAdmin ca = new CurrentAdmin();
+                        ca.setAdminid(rs.getInt("admin_id"));
+                        ca.setUsername(rs.getString("username"));
+                        ca.setFirstName(rs.getString("first_name"));
+                        ca.setLastName(rs.getString("last_name"));
+                        StuffHolder.setThisAdmin(ca);
+                    }
                     loadMainPane(StuffHolder.HomeScreen);
                 }
 

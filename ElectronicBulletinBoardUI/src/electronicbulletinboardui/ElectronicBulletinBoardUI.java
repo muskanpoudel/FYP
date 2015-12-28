@@ -6,6 +6,7 @@
 package electronicbulletinboardui;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,15 +17,16 @@ import javafx.stage.Stage;
  * @author Muskan
  */
 public class ElectronicBulletinBoardUI extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("ElectronicBulletinBoardUI.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.setOnCloseRequest(e -> System.exit(0));
         stage.show();
     }
 
@@ -34,5 +36,5 @@ public class ElectronicBulletinBoardUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

@@ -20,6 +20,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import pojo.CurrentUser;
 
 /**
  * FXML Controller class
@@ -27,26 +28,37 @@ import javafx.stage.Stage;
  * @author Muskan
  */
 public class ContentFeederFXMLController implements Initializable {
-
+    
     @FXML
     Label errorlbl;
-    @FXML TextField username;
-    @FXML PasswordField password;
-
+    @FXML
+    TextField username;
+    @FXML
+    PasswordField password;
+    
     @FXML
     public void loginPressed() throws Exception {
-        ResultSet rs = Database.executeQuery("select username, password from electronic_bulletin_board.contentfeeders where username=\"" + username.getText() + "\" and password = \"" + password.getText() + "\";");
+        ResultSet rs = Database.executeQuery("select * from electronic_bulletin_board.contentfeeders where username=\"" + username.getText() + "\" and password = \"" + password.getText() + "\";");
         if (!rs.isBeforeFirst()) {
             errorlbl.setText("Authentication failed. Please try again.");
             errorlbl.setVisible(true);
             
         } else {
             errorlbl.setVisible(false);
+            while (rs.next()) {
+                CurrentUser cu = new CurrentUser();
+                cu.setUserid(rs.getInt("idContentFeeders"));
+                cu.setUsername(rs.getString("username"));
+                cu.setFirstName(rs.getString("firstname"));
+                cu.setLastName(rs.getString("lastname"));
+                StuffHolder.setCurrentUser(cu);
+            }
+            
             loadMainPane(StuffHolder.homePage);
         }
-
+        
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

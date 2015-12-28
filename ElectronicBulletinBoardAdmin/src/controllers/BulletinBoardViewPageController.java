@@ -5,9 +5,12 @@
  */
 package controllers;
 
+import helperClasses.StuffHolder;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -16,12 +19,15 @@ import javafx.fxml.Initializable;
  */
 public class BulletinBoardViewPageController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    Label name, location, pendingInfo, shownInfo;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        name.setText(StuffHolder.getBulletinboardinfo().getName());
+        location.setText(StuffHolder.getBulletinboardinfo().getLocation());
+        shownInfo.setText("5");
+        pendingInfo.setText("10");
+    }
+
 }

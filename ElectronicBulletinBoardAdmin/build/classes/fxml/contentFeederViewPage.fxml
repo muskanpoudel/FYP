@@ -29,10 +29,5 @@
       <Button layoutX="641.0" layoutY="517.0" mnemonicParsing="false" prefWidth="146.0" text="Delete  Content Feeder" />
       <Button layoutX="797.0" layoutY="517.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="158.0" text="Suspend  Content Feeders" />
       <Label layoutX="135.0" layoutY="342.0" text="Status:" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="755.0" layoutY="115.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #BDC3C7;">
-         <graphic>
-            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-         </graphic>
-      </Label>
    </children>
 </AnchorPane>

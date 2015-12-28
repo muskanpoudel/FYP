@@ -14,20 +14,20 @@
       <URL value="@/css/contentfeederfxml.css" />
    </stylesheets>
    <children>
-      <Label layoutX="24.0" layoutY="10.0" text="Add your headlines from this page.">
+      <Label fx:id="titleOfPage" layoutX="24.0" layoutY="10.0" text="Add your headlines from this page.">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <Label layoutX="24.0" layoutY="39.0" text="Headlines are text that moves from right to left on your bulletin board." />
-      <Label layoutX="24.0" layoutY="76.0" text="Your Headline:">
+      <Label layoutX="24.0" layoutY="103.0" text="Your Headline:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextArea layoutX="22.0" layoutY="98.0" prefHeight="266.0" prefWidth="442.0" promptText="Your message here..." wrapText="true" />
-      <Label layoutX="114.0" layoutY="77.0" text="(100 Words)" />
-      <Label layoutX="202.0" layoutY="78.0" text="*** Please reduce your words." textFill="#ff0202" />
+      <TextArea fx:id="headlinemsg" layoutX="22.0" layoutY="122.0" prefHeight="242.0" prefWidth="442.0" promptText="Your message here..." wrapText="true" />
+      <Label layoutX="114.0" layoutY="104.0" text="(100 Words)" />
+      <Label layoutX="202.0" layoutY="105.0" text="*** Please reduce your words." textFill="#ff0202" />
       <Label layoutX="479.0" layoutY="65.0" text="Post Date:">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -43,14 +43,21 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <DatePicker editable="false" layoutX="661.0" layoutY="61.0" />
-      <DatePicker editable="false" layoutX="661.0" layoutY="101.0" />
-      <Button id="appButton" layoutX="720.0" layoutY="322.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Done" />
-      <Button id="appButton" layoutX="798.0" layoutY="322.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
+      <DatePicker fx:id="postDate" editable="false" layoutX="574.0" layoutY="61.0" prefHeight="25.0" prefWidth="276.0" />
+      <DatePicker fx:id="expireDate" editable="false" layoutX="574.0" layoutY="101.0" prefHeight="25.0" prefWidth="276.0" />
+      <Button id="appButton" fx:id="addupdateBtn" layoutX="705.0" layoutY="319.0" mnemonicParsing="false" onAction="#donePressed" prefHeight="33.0" prefWidth="67.0" text="Done" />
+      <Button id="appButton" layoutX="783.0" layoutY="319.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
       <FlowPane fx:id="flowPane" hgap="10.0" layoutX="479.0" layoutY="166.0" prefHeight="153.0" prefWidth="386.0" vgap="10.0">
          <padding>
             <Insets top="10.0" />
          </padding>
       </FlowPane>
+      <Label layoutX="24.0" layoutY="65.0" text="Title:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titlefld" layoutX="94.0" layoutY="61.0" prefHeight="25.0" prefWidth="374.0" promptText="Title here" />
+      <Label fx:id="msglbl" layoutX="479.0" layoutY="344.0" />
    </children>
 </AnchorPane>

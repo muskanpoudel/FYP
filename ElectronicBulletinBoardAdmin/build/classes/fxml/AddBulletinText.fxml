@@ -4,6 +4,7 @@
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
+<?import javafx.collections.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -13,60 +14,82 @@
     <stylesheets>
         <URL value="@/css/Global.css" />
     </stylesheets>
-   <children>
-      <Label layoutX="24.0" layoutY="24.0" text="Messages related to specific subject can be entered from this page.">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Label>
-      <Label layoutX="28.0" layoutY="81.0" text="Message:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <TextArea layoutX="24.0" layoutY="98.0" prefHeight="142.0" prefWidth="385.0" />
-      <Label layoutX="92.0" layoutY="81.0" text="(50 Words)" />
-      <Label layoutX="30.0" layoutY="265.0" text="Field:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="30.0" layoutY="305.0" text="Course:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="32.0" layoutY="345.0" text="Semester:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <ComboBox layoutX="114.0" layoutY="261.0" prefHeight="25.0" prefWidth="293.0" />
-      <ComboBox layoutX="114.0" layoutY="301.0" prefHeight="25.0" prefWidth="293.0" />
-      <ComboBox layoutX="114.0" layoutY="341.0" prefHeight="25.0" prefWidth="293.0" />
-      <Label layoutX="217.0" layoutY="79.0" text="*** Please reduce your words." textFill="#ff0202" />
-      <Label layoutX="523.0" layoutY="102.0" text="Post Date:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="523.0" layoutY="142.0" text="Expiry date:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="523.0" layoutY="182.0" text="Select Bulletin Board(s):">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <DatePicker editable="false" layoutX="705.0" layoutY="98.0" />
-      <DatePicker editable="false" layoutX="705.0" layoutY="138.0" />
-      <Button id="appButton" layoutX="793.0" layoutY="368.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Done" />
-      <Button id="appButton" layoutX="871.0" layoutY="368.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
-      <FlowPane fx:id="flowPane" hgap="10.0" layoutX="523.0" layoutY="206.0" prefHeight="153.0" prefWidth="415.0" vgap="10.0">
-         <padding>
-            <Insets top="10.0" />
-         </padding>
-      </FlowPane>
-   </children>
+    <children>
+        <Label fx:id="titleOfPage" layoutX="24.0" layoutY="24.0" text="Messages related to specific subject can be entered from this page.">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="26.0" layoutY="103.0" text="Message:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TextArea fx:id="msgArea" layoutX="24.0" layoutY="121.0" prefHeight="165.0" prefWidth="385.0" wrapText="true" />
+        <Label layoutX="90.0" layoutY="103.0" text="(50 Words)" />
+        <Label layoutX="30.0" layoutY="306.0" text="Field:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="32.0" layoutY="345.0" text="Semester:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="combofld" layoutX="114.0" layoutY="302.0" prefHeight="25.0" prefWidth="293.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Computing" />
+                    <String fx:value="Networking" />
+                    <String fx:value="Multimedia" />
+                    <String fx:value="BBA" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Computing" />
+            </value>
+        </ComboBox>
+        <ComboBox fx:id="combosem" layoutX="114.0" layoutY="341.0" prefHeight="25.0" prefWidth="293.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Sem 1" />
+                    <String fx:value="Sem 2" />
+                    <String fx:value="Sem 3" />
+                    <String fx:value="Sem 4" />
+                    <String fx:value="Sem 5" />
+                    <String fx:value="Sem 6" />
+                </FXCollections>
+            </items>
+            <value>
+                <String fx:value="Sem 1" />
+            </value>
+        </ComboBox>
+        <Label layoutX="214.0" layoutY="101.0" text="*** Please reduce your words." textFill="#ff0202" />
+        <Label layoutX="523.0" layoutY="102.0" text="Post Date:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="523.0" layoutY="142.0" text="Expiry date:">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="523.0" layoutY="182.0" text="Select Bulletin Board(s):">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="postDate" editable="false" layoutX="705.0" layoutY="98.0" />
+        <DatePicker fx:id="expireDate" editable="false" layoutX="705.0" layoutY="138.0" />
+        <Button id="appButton" fx:id="addupdateBtn" layoutX="793.0" layoutY="368.0" mnemonicParsing="false" onAction="#donepressed" prefHeight="33.0" prefWidth="67.0" text="Done" />
+        <Button id="appButton" layoutX="871.0" layoutY="368.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="67.0" text="Go Back" />
+        <FlowPane fx:id="flowPane" hgap="10.0" layoutX="523.0" layoutY="206.0" prefHeight="153.0" prefWidth="415.0" vgap="10.0">
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </FlowPane>
+      <Label fx:id="infoLbl" layoutX="691.0" layoutY="421.0" />
+    </children>
 </AnchorPane>

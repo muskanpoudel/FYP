@@ -6,12 +6,15 @@
 package controllers;
 
 import helperClasses.Database;
+import helperClasses.StuffHolder;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -22,16 +25,33 @@ import javafx.scene.control.TextField;
 public class ContentFeederAddingPageController implements Initializable {
 
     @FXML
-    TextField usernamefld, passwordfld, confirmpasswordfld, emailfld, firstnamefld, lastnamefld;
+    TextField usernamefld, emailfld, firstnamefld, lastnamefld;
+    @FXML
+    PasswordField passwordfld, confirmpasswordfld;
     @FXML
     ComboBox statuscombo;
     @FXML
-    Label statusLbl;
+    Label statusLbl, title_ofPage;
+    @FXML
+    Button add_editButton;
 
     @FXML
     public void addPressed() {
         String status = String.valueOf(statuscombo.getSelectionModel().getSelectedItem());
-        boolean stat = addIntoDatabase(usernamefld.getText(), passwordfld.getText(), emailfld.getText(), firstnamefld.getText(), lastnamefld.getText(), status);
+        boolean stat;
+        if (StuffHolder.isEditcontentFeeder()) {
+            stat = Database.executeUpdate("UPDATE `electronic_bulletin_board`.`contentfeeders` SET "
+                    + "`username`='" + usernamefld.getText() + "', "
+                    + "`password`='" + passwordfld.getText() + "', "
+                    + "`email`='" + emailfld.getText() + "', "
+                    + "`firstname`='" + firstnamefld.getText() + "', "
+                    + "`lastname`='" + lastnamefld.getText() + "', "
+                    + "`status`='" + status + "' "
+                    + "WHERE `idContentFeeders`='" + StuffHolder.getContetFeeders().getUserid() + "';");
+        } else {
+            stat = addIntoDatabase(usernamefld.getText(), passwordfld.getText(), emailfld.getText(), firstnamefld.getText(), lastnamefld.getText(), status);
+        }
+
         if (stat) {
             statusLbl.setText("Updated Successfully!!!");
             statusLbl.setStyle("-fx-text-fill:green");
@@ -50,7 +70,20 @@ public class ContentFeederAddingPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        if (StuffHolder.isEditcontentFeeder()) {
+            title_ofPage.setText("Edit Content Feeder's Information");
+            add_editButton.setText("Edit");
+            usernamefld.setText(StuffHolder.getContetFeeders().getUsername());
+            emailfld.setText(StuffHolder.getContetFeeders().getEmail());
+            firstnamefld.setText(StuffHolder.getContetFeeders().getFirstname());
+            lastnamefld.setText(StuffHolder.getContetFeeders().getLastname());
+            statuscombo.setValue(StuffHolder.getContetFeeders().getStatus());
+
+        } else {
+            title_ofPage.setText("Add Content Feeder's Information");
+            add_editButton.setText("Add");
+        }
+
     }
 
 }

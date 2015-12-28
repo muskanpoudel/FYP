@@ -5,9 +5,39 @@
  */
 package controllers;
 
+import helperClasses.Database;
+import helperClasses.StuffHolder;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -16,12 +46,224 @@ import javafx.fxml.Initializable;
  */
 public class ContentAddimageController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    byte[] bytes;
+    @FXML
+    private ImageView imageviewer;
+    @FXML
+    Label imagelbl;
+    @FXML
+    FlowPane flowPane;
+    @FXML
+    TextField imgTitle;
+    @FXML
+    DatePicker postDate, expireDate;
+    @FXML
+    Label titleOfPage;
+    @FXML
+    Button addupdateBtn;
+
+    File imgFile;
+    ArrayList<CheckBox> checkLists = new ArrayList<>();
+
+    public void photoChooser(ActionEvent evt) {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Images (.png, .jpg, .bmp)", "*.jpg", "*.png", "*.gif", "*.bmp");
+        fileChooser.getExtensionFilters().addAll(extFilter);
+
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(file);
+            } catch (FileNotFoundException e1) {
+                e1.printStackTrace();
+            }
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            try {
+                for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                    // Writes to this byte array output stream
+                    bos.write(buf, 0, readNum);
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            bytes = bos.toByteArray();
+            int ImageSize = bos.toByteArray().length;
+
+            if (ImageSize < 410624) {
+                imgTitle.setText(file.getName());
+                imgFile = file;
+                if (bytes != null) {
+                    BufferedImage img;
+                    try {
+                        imagelbl.setText("");
+                        img = ImageIO.read(new ByteArrayInputStream(bytes));
+                        ByteArrayOutputStream out = new ByteArrayOutputStream();
+                        ImageIO.write(img, "jpg", out);
+                        ByteArrayInputStream inn = new ByteArrayInputStream(out.toByteArray());
+                        imageviewer.setImage(new javafx.scene.image.Image(inn));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                imagelbl.setText("**image too large.");
+            }
+        }
+
+    }
+
+    @FXML
+    public void addImageToDatabase() throws SQLException, FileNotFoundException {
+        int noticeboardID = 0, contentId = 0;
+        boolean done = false;
+
+        java.util.Date postdate
+                = java.util.Date.from(postDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        java.sql.Date sqlpostDate = new java.sql.Date(postdate.getTime());
+        java.util.Date expiredate
+                = java.util.Date.from(expireDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        java.sql.Date sqlexpireDate = new java.sql.Date(expiredate.getTime());
+
+        PreparedStatement psmnt = null;
+
+        /*
+         * if bulletin is in  the process of being EDITED
+         */
+        if (StuffHolder.isEditbulletin()) {
+
+            psmnt = Database.connectDB().prepareStatement("UPDATE `electronic_bulletin_board`.`contentimage` SET "
+                    + "`publish_date`='" + (java.sql.Date) sqlpostDate + "', "
+                    + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
+                    + "`title`='" + imgTitle.getText() + "', "
+                    + "`image`= ? WHERE "
+                    + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+
+            FileInputStream fis = new FileInputStream(imgFile);
+            psmnt.setBinaryStream(1, (InputStream) fis, (int) imgFile.length());
+
+        } else {
+            /*
+             * if bulletin is in  the process of being ADDED
+             */
+            psmnt = Database.connectDB().prepareStatement(
+                    "INSERT INTO `electronic_bulletin_board`.`contentimage` "
+                    + "(`idcontentfeeder`, `publish_date`, `expire_date`, `image`, `title`, `contentTypeID`) VALUES"
+                    + " (?, ?, ?, ?, ?, ?)");
+            FileInputStream fis = new FileInputStream(imgFile);
+            psmnt.setInt(1, StuffHolder.getCurrentUser().getUserid());
+            psmnt.setDate(2, (java.sql.Date) sqlpostDate);
+            psmnt.setDate(3, (java.sql.Date) sqlexpireDate);
+            psmnt.setBinaryStream(4, (InputStream) fis, (int) imgFile.length());
+            psmnt.setString(5, imgTitle.getText());
+            psmnt.setInt(6, 1);
+        }
+
+        int s = psmnt.executeUpdate();
+        if (s > 0) {
+            done = true;
+        } else {
+            done = false;
+        }
+
+        /**
+         * image is uploaded... now its turn for bulletin board
+         */
+        ResultSet rs2 = Database.executeQuery("SELECT idcontentimage FROM \n"
+                + "electronic_bulletin_board.contentimage where \n"
+                + "idcontentfeeder= " + StuffHolder.getCurrentUser().getUserid() + " and \n"
+                + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
+                + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
+                + "title = \"" + imgTitle.getText() + "\";");
+        while (rs2.next()) {
+            contentId = rs2.getInt("idcontentimage");
+        }
+        done = Database.executeUpdate("DELETE FROM `electronic_bulletin_board`.`noticeboard_content` \n"
+                + "WHERE `idcontenttype` = '1' and `idcontent` = '" + contentId + "';");
+
+        for (int i = 0; i < checkLists.size(); i++) {
+            if (checkLists.get(i).isSelected()) {
+                String[] bulletinBoardParts = checkLists.get(i).getText().split("\\(");
+                ResultSet rs = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard where noticeboardname=\"" + bulletinBoardParts[0] + "\"");
+
+                while (rs.next()) {
+                    noticeboardID = rs.getInt("idnoticeboard");
+                }
+                done = Database.executeUpdate("INSERT INTO `electronic_bulletin_board`.`noticeboard_content` "
+                        + "(`idnoticeboard`, `idcontenttype`, `idcontent`) VALUES"
+                        + " (" + noticeboardID + ", " + 1 + ", " + contentId + ")");
+
+            }
+        }
+        if (done) {
+            imagelbl.setText("Successfully uploaded!!!");
+        } else {
+            imagelbl.setText("Unsucessfull to upload image.");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+        BufferedImage image = null;  //Buffered image coming from database
+        InputStream fis = null; //Inputstream
+
+        //for storing checkbox as soon as screen loads
+        ArrayList<CheckBox> checkboxes = new ArrayList<CheckBox>();
+        try {
+            ResultSet rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.noticeboard");
+
+            while (rs.next()) {
+                CheckBox cb = new CheckBox(rs.getString("noticeboardname") + " (" + rs.getString("noticeboardlocation") + ")");
+                flowPane.getChildren().add(cb);
+                checkboxes.add(cb);
+                checkLists.add(cb);
+            }
+
+            if (StuffHolder.isEditbulletin()) {
+                titleOfPage.setText("Update your image from this page");
+                addupdateBtn.setText("Update");
+                imgTitle.setText(StuffHolder.getBulletinInformation().getTitle());
+
+                ResultSet rs2;
+                rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.contentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+
+                while (rs.next()) {
+                    fis = rs.getBinaryStream("image");
+                    image = javax.imageio.ImageIO.read(fis);  //create the BufferedImaged
+                    Image imgfx = SwingFXUtils.toFXImage(image, null); //converting to fx image
+                    imageviewer.setImage(imgfx);
+                    expireDate.setValue(rs.getDate("expire_date").toLocalDate());
+                    postDate.setValue(rs.getDate("publish_date").toLocalDate());
+                }
+
+                while (rs2.next()) {
+                    rs = Database.executeQuery("select noticeboardname, noticeboardlocation from electronic_bulletin_board.noticeboard where idnoticeboard = " + rs2.getInt("idnoticeboard"));
+
+                    while (rs.next()) {
+                        String checkboxtext = rs.getString("noticeboardname") + " (" + rs.getString("noticeboardlocation") + ")";
+
+                        for (int i = 0; i < checkboxes.size(); i++) {
+                            if (checkboxtext == checkboxes.get(i).getText() || checkboxtext.equals(checkboxes.get(i).getText())) {
+                                checkboxes.get(i).setSelected(true);
+                            }
+                        }
+                    }
+                }
+
+            } else {
+                titleOfPage.setText("Add Content Feeder's Information");
+                addupdateBtn.setText("Add");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ContentAddimageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ContentAddimageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
