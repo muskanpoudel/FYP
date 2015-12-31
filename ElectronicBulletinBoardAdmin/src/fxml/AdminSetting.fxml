@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminSettingController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="54.0" fitWidth="56.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/adminCircle.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="70.0" layoutY="14.0" text="Admin Setting">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="9.0" layoutY="95.0" text="First Name:" />
+      <Label layoutX="9.0" layoutY="130.0" text="Last Name:" />
+      <Label layoutX="9.0" layoutY="164.0" text="Username:" />
+      <Label layoutX="9.0" layoutY="199.0" text="Password:" />
+      <Label layoutX="9.0" layoutY="234.0" text="Confirm Password:" />
+      <Label layoutX="9.0" layoutY="269.0" text="PIN:" />
+      <Label layoutX="9.0" layoutY="304.0" text="Confirm PIN:" />
+      <Label layoutX="9.0" layoutY="339.0" text="Email:" />
+      <TextField fx:id="fnamefld" layoutX="112.0" layoutY="91.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="lnamefld" layoutX="112.0" layoutY="126.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="unamefld" layoutX="112.0" layoutY="160.0" prefHeight="25.0" prefWidth="180.0" />
+      <PasswordField fx:id="passfld" layoutX="112.0" layoutY="195.0" prefHeight="25.0" prefWidth="180.0" />
+      <PasswordField fx:id="cpassfld" layoutX="112.0" layoutY="230.0" prefHeight="25.0" prefWidth="180.0" />
+      <PasswordField fx:id="pinfld" layoutX="113.0" layoutY="265.0" prefHeight="25.0" prefWidth="180.0" />
+      <PasswordField fx:id="cpinfld" layoutX="113.0" layoutY="300.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="emailfld" layoutX="112.0" layoutY="335.0" prefHeight="25.0" prefWidth="180.0" />
+      <Button id="appButton" fx:id="addEditBtn" layoutX="13.0" layoutY="378.0" mnemonicParsing="false" onAction="#addPressed" prefHeight="25.0" prefWidth="135.0" text="Add" />
+      <Button id="appButton" layoutX="156.0" layoutY="378.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="25.0" prefWidth="135.0" text="Cancel" />
+      <Button id="appButton" fx:id="editbtn" disable="true" layoutX="302.0" layoutY="91.0" mnemonicParsing="false" onAction="#editPressed" prefHeight="25.0" prefWidth="113.0" text="Edit" />
+      <Button id="appButton" fx:id="delbtn" disable="true" layoutX="426.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Delete" />
+      <TableView fx:id="table" layoutX="302.0" layoutY="124.0" onMouseReleased="#mouseReleasedFromTable" prefHeight="435.0" prefWidth="766.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="fname" prefWidth="139.0" text="First Name" />
+            <TableColumn fx:id="lname" prefWidth="155.0" text="Last Name" />
+            <TableColumn fx:id="uname" prefWidth="148.0" text="UserName" />
+            <TableColumn fx:id="email" prefWidth="248.0" text="Email" />
+        </columns>
+      </TableView>
+      <Button id="appButton" layoutX="10.0" layoutY="528.0" mnemonicParsing="false" onAction="#goback" prefHeight="25.0" prefWidth="284.0" text="Go Back" />
+      <Label fx:id="msglbl" layoutX="16.0" layoutY="421.0" />
+      <TextField fx:id="filterField" layoutX="914.0" layoutY="91.0" promptText="Search" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="889.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

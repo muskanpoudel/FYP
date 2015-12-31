@@ -5,7 +5,6 @@
  */
 package helperClasses;
 
-import controllers.BulletinBoardPopUpController;
 import controllers.PopupController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;

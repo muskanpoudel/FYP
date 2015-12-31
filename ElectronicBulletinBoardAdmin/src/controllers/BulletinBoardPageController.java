@@ -42,7 +42,7 @@ public class BulletinBoardPageController implements Initializable {
     @FXML
     TableView<BulletinBoards> table;
     @FXML
-    TableColumn bbId, bbName, bbLocation;
+    TableColumn bbId, bbName, bbLocation, bbStatus;
     @FXML
     Button viewBB, editBB, delBB;
 
@@ -101,12 +101,14 @@ public class BulletinBoardPageController implements Initializable {
                 bb.setId(rs.getInt("idnoticeboard"));
                 bb.setName(rs.getString("noticeboardname"));
                 bb.setLocation(rs.getString("noticeboardlocation"));
+                bb.setStatus(rs.getString("status"));
                 observableList.add(bb);
             }
 
-            bbId.setCellValueFactory(new PropertyValueFactory<ContentFeeders, String>("id"));
-            bbName.setCellValueFactory(new PropertyValueFactory<ContentFeeders, String>("name"));
-            bbLocation.setCellValueFactory(new PropertyValueFactory<ContentFeeders, String>("location"));
+            bbId.setCellValueFactory(new PropertyValueFactory<BulletinBoards, String>("id"));
+            bbName.setCellValueFactory(new PropertyValueFactory<BulletinBoards, String>("name"));
+            bbLocation.setCellValueFactory(new PropertyValueFactory<BulletinBoards, String>("location"));
+            bbStatus.setCellValueFactory(new PropertyValueFactory<BulletinBoards, String>("status"));
 
             // 1. Wrap the ObservableList in a FilteredList (initially display all data).
             FilteredList<BulletinBoards> filteredData = new FilteredList<>(observableList, p -> true);
@@ -126,6 +128,8 @@ public class BulletinBoardPageController implements Initializable {
                     if (bulletinBoards.getName().toLowerCase().contains(lowerCaseFilter)) {
                         return true; // Filter matches first name.
                     } else if (bulletinBoards.getLocation().toLowerCase().contains(lowerCaseFilter)) {
+                        return true; // Filter matches last name.
+                    } else if (bulletinBoards.getStatus().toLowerCase().contains(lowerCaseFilter)) {
                         return true; // Filter matches last name.
                     }
                     return false; // Does not match.

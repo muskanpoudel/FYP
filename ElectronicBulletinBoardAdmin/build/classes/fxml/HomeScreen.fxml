@@ -47,7 +47,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1026.0" layoutY="10.0" prefHeight="17.0" prefWidth="302.0" text="Welcome, Muskan Poudel" textFill="WHITE">
+                        <Label fx:id="WelcomeLbl" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1026.0" layoutY="10.0" prefHeight="17.0" prefWidth="302.0" textFill="WHITE">
                            <font>
                               <Font name="Segoe UI" size="15.0" />
                            </font>

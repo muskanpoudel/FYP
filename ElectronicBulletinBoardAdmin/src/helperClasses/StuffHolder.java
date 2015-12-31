@@ -7,10 +7,13 @@ package helperClasses;
 
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import pojo.Admin;
 import pojo.BulletinBoards;
 import pojo.BulletinInfo;
 import pojo.ContentFeeders;
 import pojo.CurrentAdmin;
+import pojo.Student;
+import pojo.Teacher;
 
 /**
  *
@@ -28,7 +31,12 @@ public class StuffHolder {
     public static String BulletinBoardPage = "/fxml/BulletinBoardPage.fxml";
     public static String ContentFeederPage = "/fxml/ContentFeederPage.fxml";
     public static String BulletinPage = "/fxml/BulletinsPage.fxml";
+
     public static String SettingPage = "/fxml/GeneralSettingPage.fxml";
+    public static String adminSettingPage = "/fxml/AdminSetting.fxml";
+    public static String studentSettingPage = "/fxml/StudentSetting.fxml";
+    public static String teacherSettingPage = "/fxml/TeacherSetting.fxml";
+
     public static String SusContentFeederPage = "/fxml/SusContentFeederPage.fxml";
     public static String SmsSettingPage = "/fxml/SMSSettingPage.fxml";
 
@@ -70,6 +78,13 @@ public class StuffHolder {
     static boolean editbulletin = false;
     //storing bulletin info
     static BulletinInfo bulletinInformation;
+
+    //storing selected admin data for setting page
+    static Admin admin;
+    //storing selected teacher data for setting page
+    static Teacher teacher;
+    //storing selected Student data for setting page
+    static Student student;
 
     public static Stage getStageMAin() {
         return stageMAin;
@@ -171,7 +186,6 @@ public class StuffHolder {
     }
 
     //bulletins
-
     public static boolean isEditbulletin() {
         return editbulletin;
     }
@@ -187,5 +201,29 @@ public class StuffHolder {
     public static void setBulletinInformation(BulletinInfo bulletinInformation) {
         StuffHolder.bulletinInformation = bulletinInformation;
     }
-    
+
+    public static Admin getAdmin() {
+        return admin;
+    }
+
+    public static void setAdmin(Admin admin) {
+        StuffHolder.admin = admin;
+    }
+
+    public static Teacher getTeacher() {
+        return teacher;
+    }
+
+    public static void setTeacher(Teacher teacher) {
+        StuffHolder.teacher = teacher;
+    }
+
+    public static Student getStudent() {
+        return student;
+    }
+
+    public static void setStudent(Student student) {
+        StuffHolder.student = student;
+    }
+
 }

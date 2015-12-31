@@ -60,41 +60,49 @@ public class LogInScreenController implements Initializable {
 
     ShowPopup sp = new ShowPopup(); //for popups
 
+    public void checkInternetDatabase() {
+        if (CheckInternetConnection.testInet()) {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    internetIcon.setImage(LocalUtility.imageFactory("/img/yesInternet.png"));
+                    internetlbl.setStyle("-fx-text-fill:#2ecc71");
+                    internetlbl.setText("Internet Access.");
+                }
+            });
+        }
+
+        if (Database.connectDB() != null || !(Database.connectDB()).equals(null)) {
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    databaseIcon.setImage(LocalUtility.imageFactory("/img/yesdatabase.png"));
+                    databaselbl.setStyle("-fx-text-fill:#2ecc71");
+                    databaselbl.setText("Connected to database.");
+                }
+            });
+        }
+
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        new Thread() {
+            @Override
+            public void run() {
+                checkInternetDatabase();
+            }
+        }.start();
+
         validator.addValidator(new NumberValidator(pinfld, Boolean.TRUE));
         validator.addValidator(new NumericStringValidator(usernamefld, Boolean.TRUE));
         validator.addValidator(new NumericStringValidator(passwordfld, Boolean.TRUE));
         gv.add(usernamefld);
         gv.add(passwordfld);
         gv.add(pinfld);
-
-        new Thread() {
-            @Override
-            public void run() {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (CheckInternetConnection.testInet()) {
-                            internetIcon.setImage(LocalUtility.imageFactory("/img/yesInternet.png"));
-                            internetlbl.setStyle("-fx-text-fill:#2ecc71");
-                            internetlbl.setText("Internet Access.");
-                        }
-
-                        if (Database.connectDB() != null || !(Database.connectDB()).equals(null)) {
-                            databaseIcon.setImage(LocalUtility.imageFactory("/img/yesdatabase.png"));
-                            databaselbl.setStyle("-fx-text-fill:#2ecc71");
-                            databaselbl.setText("Connected to database.");
-                        }
-
-                    }
-                });
-
-            }
-        }.start();
 
     }
 

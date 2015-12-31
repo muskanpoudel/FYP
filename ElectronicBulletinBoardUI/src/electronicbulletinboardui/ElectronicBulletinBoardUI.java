@@ -5,8 +5,8 @@
  */
 package electronicbulletinboardui;
 
+import helperClasses.StuffHolder;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,6 +27,7 @@ public class ElectronicBulletinBoardUI extends Application {
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.setOnCloseRequest(e -> System.exit(0));
+        StuffHolder.setStageMain(stage);
         stage.show();
     }
 

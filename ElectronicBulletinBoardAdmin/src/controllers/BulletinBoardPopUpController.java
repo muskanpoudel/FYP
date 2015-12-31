@@ -52,8 +52,8 @@ public class BulletinBoardPopUpController implements Initializable {
 
     public boolean addIntoDatabase(String BBname, String BBlocation) {
         boolean stat = Database.executeUpdate("INSERT INTO `electronic_bulletin_board`.`noticeboard` "
-                + "(`noticeboardname`, `noticeboardlocation`) VALUES"
-                + " ('" + BBname + "', '" + BBlocation + "')");
+                + "(`noticeboardname`, `noticeboardlocation`, `status`) VALUES"
+                + " ('" + BBname + "', '" + BBlocation + "', 'free')");
         return stat;
     }
 

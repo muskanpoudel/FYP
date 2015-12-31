@@ -194,6 +194,9 @@
     -fx-background-color: #7ecefd;
     -fx-border-color: #7ecefd;
 }
+#appButton:focused{
+    -fx-border-width: 2;    
+}
 #appButton:pressed{
     -fx-background-radius:90;
     -fx-border-radius:90;

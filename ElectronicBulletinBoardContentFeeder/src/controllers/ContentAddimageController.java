@@ -140,7 +140,7 @@ public class ContentAddimageController implements Initializable {
                     + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                     + "`title`='" + imgTitle.getText() + "', "
                     + "`image`= ? WHERE "
-                    + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                    + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
 
             FileInputStream fis = new FileInputStream(imgFile);
             psmnt.setBinaryStream(1, (InputStream) fis, (int) imgFile.length());
@@ -228,8 +228,8 @@ public class ContentAddimageController implements Initializable {
                 imgTitle.setText(StuffHolder.getBulletinInformation().getTitle());
 
                 ResultSet rs2;
-                rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.contentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.contentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
 
                 while (rs.next()) {
                     fis = rs.getBinaryStream("image");

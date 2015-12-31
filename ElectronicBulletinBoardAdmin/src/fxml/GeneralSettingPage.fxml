@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
@@ -19,5 +20,56 @@
          </font>
       </Label>
       <Label layoutX="18.0" layoutY="52.0" text="Welcome to setting page. Various Settings of system can be managed from this page." />
+      <Separator layoutX="517.0" layoutY="124.0" orientation="VERTICAL" prefHeight="381.0" prefWidth="0.0" />
+      <Label layoutX="56.0" layoutY="157.0" text="Select Organisation's Icon">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="419.0" text="Select Organisation's Name:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="572.0" layoutY="289.0" onMouseReleased="#studentSetting" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/student.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="889.0" layoutY="293.0" onMouseReleased="#teacherSetting" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/teacher.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="726.0" layoutY="101.0" onMouseReleased="#adminSetting" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/adminCircle.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="763.0" layoutY="257.0" text="Admin Setting" />
+      <Label layoutX="606.0" layoutY="447.0" text="Student Setting" />
+      <Label layoutX="926.0" layoutY="451.0" text="Teacher Setting" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="183.0" prefHeight="202.0" prefWidth="202.0" style="-fx-border-color: grey;">
+         <graphic>
+            <ImageView fx:id="imgView" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/organisation.jpg" />
+               </image></ImageView>
+         </graphic>
+      </Label>
+      <Button id="appButton" layoutX="271.0" layoutY="360.0" mnemonicParsing="false" onAction="#browseImage" text="Browse" />
+      <TextField fx:id="headertxtfld" layoutX="56.0" layoutY="439.0" prefHeight="25.0" prefWidth="416.0" promptText="Organisation's Name" />
+      <Button id="appButton" layoutX="362.0" layoutY="488.0" mnemonicParsing="false" onAction="#applyPressed" prefHeight="25.0" prefWidth="110.0" text="Apply Setting" />
+      <Label fx:id="imglbl" layoutX="271.0" layoutY="394.0" />
+      <Label fx:id="msglbl" layoutX="56.0" layoutY="492.0" style="-fx-text-fill: green;" />
    </children>
 </AnchorPane>

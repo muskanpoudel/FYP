@@ -21,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -40,6 +41,9 @@ public class HomeScreenController implements Initializable {
     ToggleButton dashtogglebtn, menutogglebtn;
     @FXML
     StackPane stackPane;
+    @FXML
+    Label WelcomeLbl;
+
     Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
 
     ShowPopup sp = new ShowPopup();
@@ -92,6 +96,19 @@ public class HomeScreenController implements Initializable {
         try {
             dashtogglebtn.setSelected(true);
             stackPane.getChildren().add(FXMLLoader.load(getClass().getResource(StuffHolder.dashboard)));
+
+            /**
+             * to convert first character to string
+             */
+            String fname = StuffHolder.getThisAdmin().getFirstName();
+            String lname = StuffHolder.getThisAdmin().getLastName();
+
+            fname = Character.toUpperCase(fname.charAt(0)) + fname.substring(1);
+            lname = Character.toUpperCase(lname.charAt(0)) + lname.substring(1);
+
+            String AdminName = fname + " " + lname;
+
+            WelcomeLbl.setText("Welcome, " + AdminName);
         } catch (IOException ex) {
             Logger.getLogger(HomeScreenController.class.getName()).log(Level.SEVERE, null, ex);
         }

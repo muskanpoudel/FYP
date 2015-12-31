@@ -65,7 +65,7 @@ public class ContentAddHeadlineController implements Initializable {
                     + ", `title`='" + titlefld.getText() + "' "
                     + ", `publish_date`='" + (java.sql.Date) sqlpostDate + "' "
                     + ", `expire_date`='" + (java.sql.Date) sqlexpireDate + "' "
-                    + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                    + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
 
         } else {
             done = Database.executeUpdate("INSERT INTO `electronic_bulletin_board`.`contentheadline` \n"
@@ -129,8 +129,8 @@ public class ContentAddHeadlineController implements Initializable {
                 addupdateBtn.setText("Update");
 
                 ResultSet rs2;
-                rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
 
                 while (rs.next()) {
                     titlefld.setText(rs.getString("title"));

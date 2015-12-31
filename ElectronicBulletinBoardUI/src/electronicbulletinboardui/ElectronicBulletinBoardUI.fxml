@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
@@ -19,24 +20,38 @@
       <Pane prefHeight="145.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#394263" height="93.0" layoutX="3.0" layoutY="3.0" stroke="#394263" strokeType="INSIDE" width="1359.0" />
-            <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="408.0" text="Electronic Bulletin Board" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI" size="20.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="69.0" fitWidth="65.0" layoutX="30.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/college%20logo.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="101.0" layoutY="21.0" prefHeight="28.0" prefWidth="205.0" text="Islington College" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Bold" size="23.0" />
-               </font>
-            </Label>
-            <Pane fx:id="digitalClockPane" layoutX="1092.0" layoutY="15.0" prefHeight="72.0" prefWidth="126.0">
+            <Pane fx:id="digitalClockPane" layoutX="14.0" layoutY="15.0" prefHeight="72.0" prefWidth="274.0">
                <children>
-                  <VBox fx:id="timeDateVbox" prefHeight="72.0" prefWidth="126.0" />
+                  <HBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <ImageView fx:id="organisationIcon" fitHeight="72.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets right="10.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Label fx:id="organisationTitle" prefHeight="28.0" prefWidth="210.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="BulletinBoardtitle" prefHeight="28.0" prefWidth="408.0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </Pane>
             <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="919.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
@@ -49,6 +64,7 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
+            <VBox fx:id="timeDateVbox" layoutX="1086.0" layoutY="13.0" prefHeight="72.0" prefWidth="126.0" />
             <Separator layoutX="1073.0" layoutY="14.0" orientation="VERTICAL" prefHeight="72.0" prefWidth="6.0" />
             <Pane id="secPane" layoutX="3.0" layoutY="98.0" prefHeight="48.0" prefWidth="1359.0">
                <children>
@@ -68,7 +84,10 @@
                </children>
             </Pane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#20243d" height="45.0" layoutX="1315.0" layoutY="99.0" stroke="#20243d" strokeType="INSIDE" width="52.0" />
-            <Pane fx:id="clockPane" layoutX="1220.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="140.0" />
+            <Pane fx:id="clockPane" layoutX="1220.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseReleased="#SettingCalled" prefHeight="140.0" prefWidth="140.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Pane>
          </children>
       </Pane>
    </top>

@@ -14,6 +14,7 @@ public class BulletinBoards {
     public int id;
     public String name;
     public String location;
+    public String status;
 
     public int getId() {
         return id;
@@ -37,6 +38,14 @@ public class BulletinBoards {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }

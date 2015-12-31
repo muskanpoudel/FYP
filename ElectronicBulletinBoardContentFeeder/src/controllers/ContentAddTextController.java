@@ -68,7 +68,7 @@ public class ContentAddTextController implements Initializable {
                     + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                     + "`title`='" + title + "', "
                     + "`text`='" + msgArea.getText() + "' WHERE "
-                    + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                    + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
         } else {
             done = Database.executeUpdate("INSERT INTO `electronic_bulletin_board`.`contenttext` "
                     + "(`idcontentfeeder`, `publish_date`, `expire_date`, `title`, `text`) VALUES "
@@ -125,8 +125,8 @@ public class ContentAddTextController implements Initializable {
                 addupdateBtn.setText("Update");
 
                 ResultSet rs2;
-                rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
 
                 while (rs.next()) {
                     String[] titlePieces = rs.getString("title").split("\\(");

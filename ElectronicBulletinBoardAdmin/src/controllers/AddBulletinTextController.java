@@ -54,6 +54,7 @@ public class AddBulletinTextController implements Initializable {
         title = combofld.getSelectionModel().getSelectedItem().toString() + " (" + combosem.getSelectionModel().getSelectedItem().toString() + ")";
         int noticeboardID = 0, contentId = 0;
         boolean done = false;
+        ResultSet rs2;
 
         java.util.Date postdate
                 = java.util.Date.from(postDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
@@ -63,56 +64,73 @@ public class AddBulletinTextController implements Initializable {
         java.sql.Date sqlexpireDate = new java.sql.Date(expiredate.getTime());
 
         if (StuffHolder.isEditbulletin()) {
+            /**
+             * if content is edited
+             */
             if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
                 done = Database.executeUpdate("UPDATE `electronic_bulletin_board`.`contenttext` SET "
                         + "`publish_date`='" + (java.sql.Date) sqlpostDate + "', "
                         + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                         + "`title`='" + title + "', "
                         + "`text`='" + msgArea.getText() + "' WHERE "
-                        + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
             } else {
                 done = Database.executeUpdate("UPDATE `electronic_bulletin_board`.`admincontenttext` SET "
                         + "`publish_date`='" + (java.sql.Date) sqlpostDate + "', "
                         + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                         + "`title`='" + title + "', "
                         + "`text`='" + msgArea.getText() + "' WHERE "
-                        + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "`idcontenttext`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
             }
 
+            if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
+                rs2 = Database.executeQuery("SELECT idcontenttext FROM \n"
+                        + "electronic_bulletin_board.contenttext where \n"
+                        + "idcontentfeeder= " + StuffHolder.getThisAdmin().getAdminid() + " and \n"
+                        + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
+                        + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
+                        + "title = \"" + title + "\";");
+            } else {
+                rs2 = Database.executeQuery("SELECT idcontenttext FROM \n"
+                        + "electronic_bulletin_board.admincontenttext where \n"
+                        + "idcontentfeeder= " + StuffHolder.getThisAdmin().getAdminid() + " and \n"
+                        + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
+                        + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
+                        + "title = \"" + title + "\";");
+            }
+
+            while (rs2.next()) {
+                contentId = rs2.getInt("idcontenttext");
+            }
+
+            if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
+                done = Database.executeUpdate("DELETE FROM `electronic_bulletin_board`.`noticeboard_content` \n"
+                        + "WHERE `idcontenttype` = '3' and `idcontent` = '" + contentId + "';");
+            } else {
+                done = Database.executeUpdate("DELETE FROM `electronic_bulletin_board`.`noticeboard_admincontent` \n"
+                        + "WHERE `idcontenttype` = '3' and `idcontent` = '" + contentId + "';");
+            }
+
+            /**
+             * if content is added
+             */
         } else {
 
             done = Database.executeUpdate("INSERT INTO `electronic_bulletin_board`.`admincontenttext` "
                     + "(`idcontentfeeder`, `publish_date`, `expire_date`, `title`, `text`) VALUES "
                     + "('" + StuffHolder.getThisAdmin().getAdminid() + "', '" + (java.sql.Date) sqlpostDate + "', '" + (java.sql.Date) sqlexpireDate + "', '" + title + "', '" + msgArea.getText() + "');");
-        }
 
-        ResultSet rs2;
-        if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
-            rs2 = Database.executeQuery("SELECT idcontenttext FROM \n"
-                    + "electronic_bulletin_board.contenttext where \n"
-                    + "idcontentfeeder= " + StuffHolder.getThisAdmin().getAdminid() + " and \n"
-                    + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
-                    + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
-                    + "title = \"" + title + "\";");
-        } else {
             rs2 = Database.executeQuery("SELECT idcontenttext FROM \n"
                     + "electronic_bulletin_board.admincontenttext where \n"
                     + "idcontentfeeder= " + StuffHolder.getThisAdmin().getAdminid() + " and \n"
                     + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
                     + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
                     + "title = \"" + title + "\";");
-        }
 
-        while (rs2.next()) {
-            contentId = rs2.getInt("idcontenttext");
-        }
+            while (rs2.next()) {
+                contentId = rs2.getInt("idcontenttext");
+            }
 
-        if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
-            done = Database.executeUpdate("DELETE FROM `electronic_bulletin_board`.`noticeboard_content` \n"
-                    + "WHERE `idcontenttype` = '3' and `idcontent` = '" + contentId + "';");
-        } else {
-            done = Database.executeUpdate("DELETE FROM `electronic_bulletin_board`.`noticeboard_admincontent` \n"
-                    + "WHERE `idcontenttype` = '3' and `idcontent` = '" + contentId + "';");
         }
 
         for (int i = 0; i < checkLists.size(); i++) {
@@ -174,11 +192,11 @@ public class AddBulletinTextController implements Initializable {
 
                 ResultSet rs2;
                 if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
-                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
                 } else {
-                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.admincontenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.admincontenttext where idcontenttext = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 3 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
                 }
                 while (rs.next()) {
                     String[] titlePieces = rs.getString("title").split("\\(");

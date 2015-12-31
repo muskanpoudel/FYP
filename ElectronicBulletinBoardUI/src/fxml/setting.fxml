@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="electronicbulletinboardui.SettingController">
+   <children>
+      <Label layoutX="23.0" layoutY="94.0" text="Available Bulletin Boards are listed below:" />
+      <ComboBox fx:id="cbox" layoutX="24.0" layoutY="117.0" prefHeight="25.0" prefWidth="360.0" promptText="Choose Bulletin Board to Register" />
+      <Button layoutX="303.0" layoutY="151.0" mnemonicParsing="false" onAction="#ApplyPressed" prefHeight="25.0" prefWidth="81.0" text="Apply" />
+      <Pane prefHeight="82.0" prefWidth="400.0" style="-fx-background-color: #1E223A;">
+         <children>
+            <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="12.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/setting.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="64.0" layoutY="11.0" text="Setting" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="39.0" text="Please register your Bulletin Board Through this page." textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

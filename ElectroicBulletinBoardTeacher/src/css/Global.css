@@ -1,0 +1,33 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {}
+//all the buttons in the application
+#appButton{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: white;
+    -fx-border-color: #7ECEFD;
+}
+#appButton:hover{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #c7b29b;
+    -fx-border-color: #c7b29b;
+}
+#appButton:selected{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #7ecefd;
+    -fx-border-color: #7ecefd;
+}
+#appButton:focused{
+    -fx-border-width: 2;    
+}
+#appButton:pressed{
+    -fx-background-radius:90;
+    -fx-border-radius:90;
+    -fx-background-color: #7ecefd;
+    -fx-border-color: #7ecefd;
+}

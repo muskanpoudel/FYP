@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="567.0" prefWidth="1077.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StudentSettingController">
+    <stylesheets>
+        <URL value="@/css/Global.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="56.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/student.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="69.0" layoutY="17.0" text="Student Setting">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="105.0" text="First Name:" />
+      <Label layoutX="19.0" layoutY="140.0" text="Last Name:" />
+      <Label layoutX="19.0" layoutY="174.0" text="Session" />
+      <Label layoutX="21.0" layoutY="278.0" text="Group" />
+      <Label layoutX="21.0" layoutY="313.0" text="Email" />
+      <Label layoutX="21.0" layoutY="348.0" text="Phone No." />
+      <TextField fx:id="fnamefld" layoutX="122.0" layoutY="101.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="lnamefld" layoutX="122.0" layoutY="136.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="sessionfld" layoutX="122.0" layoutY="170.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="yearfld" layoutX="124.0" layoutY="205.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="semfld" layoutX="124.0" layoutY="240.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="groupfld" layoutX="124.0" layoutY="275.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="emailfld" layoutX="124.0" layoutY="310.0" prefHeight="25.0" prefWidth="180.0" />
+      <TextField fx:id="pnofld" layoutX="124.0" layoutY="344.0" prefHeight="25.0" prefWidth="180.0" />
+      <Button id="appButton" fx:id="addEditBtn" layoutX="19.0" layoutY="386.0" mnemonicParsing="false" onAction="#addPressed" prefHeight="25.0" prefWidth="135.0" text="Add" />
+      <Button id="appButton" layoutX="162.0" layoutY="386.0" mnemonicParsing="false" onAction="#cancelPressed" prefHeight="25.0" prefWidth="135.0" text="Cancel" />
+      <Button id="appButton" fx:id="editbtn" disable="true" layoutX="312.0" layoutY="101.0" mnemonicParsing="false" onAction="#editPressed" prefHeight="25.0" prefWidth="113.0" text="Edit" />
+      <Button id="appButton" fx:id="delbtn" disable="true" layoutX="436.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Delete" />
+      <TableView fx:id="table" layoutX="312.0" layoutY="136.0" onMouseReleased="#mouseReleasedFromTable" prefHeight="422.0" prefWidth="758.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="fname" prefWidth="139.0" text="First Name" />
+            <TableColumn fx:id="lname" prefWidth="155.0" text="Last Name" />
+            <TableColumn fx:id="session" prefWidth="107.0" text="Session" />
+            <TableColumn fx:id="year" prefWidth="121.0" text="Year" />
+            <TableColumn fx:id="sem" prefWidth="121.0" text="Semister" />
+            <TableColumn fx:id="group" prefWidth="121.0" text="Group" />
+            <TableColumn fx:id="email" prefWidth="121.0" text="Email" />
+            <TableColumn fx:id="pno" prefWidth="121.0" text="Phone No." />
+         </columns>
+      </TableView>
+      <Button id="appButton" layoutX="20.0" layoutY="528.0" mnemonicParsing="false" onAction="#goback" prefHeight="25.0" prefWidth="284.0" text="Go Back" />
+      <Label layoutX="21.0" layoutY="209.0" text="Year" />
+      <Label layoutX="21.0" layoutY="244.0" text="Semister" />
+      <TextField fx:id="filterField" layoutX="919.0" layoutY="101.0" promptText="Search" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="894.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/search.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="msglbl" layoutX="22.0" layoutY="428.0" />
+   </children>
+</AnchorPane>

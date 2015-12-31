@@ -61,20 +61,21 @@ public class AddBulletinHeadlineController implements Initializable {
         java.sql.Date sqlexpireDate = new java.sql.Date(expiredate.getTime());
 
         if (StuffHolder.isEditbulletin()) {
+
             if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
                 done = Database.executeUpdate("UPDATE `electronic_bulletin_board`.`contentheadline` "
                         + "SET `headline`='" + headlinemsg.getText() + "'"
                         + ", `title`='" + titlefld.getText() + "' "
                         + ", `publish_date`='" + (java.sql.Date) sqlpostDate + "' "
                         + ", `expire_date`='" + (java.sql.Date) sqlexpireDate + "' "
-                        + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
             } else {
                 done = Database.executeUpdate("UPDATE `electronic_bulletin_board`.`admincontentheadline` "
                         + "SET `headline`='" + headlinemsg.getText() + "'"
                         + ", `title`='" + titlefld.getText() + "' "
                         + ", `publish_date`='" + (java.sql.Date) sqlpostDate + "' "
                         + ", `expire_date`='" + (java.sql.Date) sqlexpireDate + "' "
-                        + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "WHERE `idcontentheadline`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
             }
 
             if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
@@ -188,11 +189,11 @@ public class AddBulletinHeadlineController implements Initializable {
 
                 ResultSet rs2;
                 if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
-                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.contentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
                 } else {
-                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.admincontentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                    rs = Database.executeQuery("SELECT * FROM electronic_bulletin_board.admincontentheadline where idcontentheadline = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 2 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
                 }
 
                 while (rs.next()) {

@@ -143,7 +143,7 @@ public class AddBulletinImgController implements Initializable {
                         + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                         + "`title`='" + imgTitle.getText() + "', "
                         + "`image`= ? WHERE "
-                        + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
 
                 FileInputStream fis = new FileInputStream(imgFile);
                 psmnt.setBinaryStream(1, (InputStream) fis, (int) imgFile.length());
@@ -153,7 +153,7 @@ public class AddBulletinImgController implements Initializable {
                         + "`expire_date`='" + (java.sql.Date) sqlexpireDate + "', "
                         + "`title`='" + imgTitle.getText() + "', "
                         + "`image`= ? WHERE "
-                        + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1) + "';");
+                        + "`idcontentimage`='" + StuffHolder.getBulletinInformation().getBulletinId().substring(4) + "';");
 
                 FileInputStream fis = new FileInputStream(imgFile);
                 psmnt.setBinaryStream(1, (InputStream) fis, (int) imgFile.length());
@@ -169,6 +169,10 @@ public class AddBulletinImgController implements Initializable {
                         + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
                         + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
                         + "title = \"" + imgTitle.getText() + "\";");
+                while (rs2.next()) {
+                    contentId = rs2.getInt("idcontentimage");
+
+                }
             } else {
                 rs2 = Database.executeQuery("SELECT idcontentimage FROM \n"
                         + "electronic_bulletin_board.admincontentimage where \n"
@@ -176,6 +180,10 @@ public class AddBulletinImgController implements Initializable {
                         + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
                         + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
                         + "title = \"" + imgTitle.getText() + "\";");
+                while (rs2.next()) {
+                    contentId = rs2.getInt("idcontentimage");
+
+                }
             }
         } else {
             /*
@@ -193,23 +201,24 @@ public class AddBulletinImgController implements Initializable {
             psmnt.setString(5, imgTitle.getText());
             psmnt.setInt(6, 1);
 
+            int s = psmnt.executeUpdate();
+            if (s > 0) {
+                done = true;
+            } else {
+                done = false;
+            }
+
             rs2 = Database.executeQuery("SELECT idcontentimage FROM \n"
                     + "electronic_bulletin_board.admincontentimage where \n"
                     + "idcontentfeeder= " + StuffHolder.getThisAdmin().getAdminid() + " and \n"
                     + "publish_date='" + (java.sql.Date) sqlpostDate + "' and \n"
                     + "expire_date = '" + (java.sql.Date) sqlexpireDate + "' and \n"
                     + "title = \"" + imgTitle.getText() + "\";");
-        }
 
-        int s = psmnt.executeUpdate();
-        if (s > 0) {
-            done = true;
-        } else {
-            done = false;
-        }
+            while (rs2.next()) {
+                contentId = rs2.getInt("idcontentimage");
 
-        while (rs2.next()) {
-            contentId = rs2.getInt("idcontentimage");
+            }
         }
 
         if (StuffHolder.isEditbulletin()) {
@@ -221,6 +230,7 @@ public class AddBulletinImgController implements Initializable {
                         + "WHERE `idcontenttype` = '1' and `idcontent` = '" + contentId + "';");
             }
         }
+
         for (int i = 0; i < checkLists.size(); i++) {
             if (checkLists.get(i).isSelected()) {
                 String[] bulletinBoardParts = checkLists.get(i).getText().split("\\(");
@@ -292,12 +302,11 @@ public class AddBulletinImgController implements Initializable {
 
                 ResultSet rs2;
                 if (StuffHolder.getBulletinInformation().getBulletinId().charAt(0) == 'C') {
-                    rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.contentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                } else {
-                    System.err.println("Else ma chiryo hai....");
-                    rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.admincontentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
-                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().charAt(StuffHolder.getBulletinInformation().getBulletinId().length() - 1));
+                    rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.contentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_content where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                } else {//problem found --> only last char of id is taken.. eg it takes only 8 if it is 18
+                    rs = Database.executeQuery("SELECT image, publish_date, expire_date FROM electronic_bulletin_board.admincontentimage where idcontentimage = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
+                    rs2 = Database.executeQuery("SELECT idnoticeboard FROM electronic_bulletin_board.noticeboard_admincontent where idcontenttype = 1 and idcontent = " + StuffHolder.getBulletinInformation().getBulletinId().substring(4));
                 }
                 while (rs.next()) {
                     fis = rs.getBinaryStream("image");
