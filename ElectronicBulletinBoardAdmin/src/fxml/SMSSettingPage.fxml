@@ -19,5 +19,16 @@
          </font>
       </Label>
       <Label layoutX="18.0" layoutY="52.0" text="Welcome to SMS setting page. Various Settings of system related to SMS can be managed from this page." />
+      <Label layoutX="92.0" layoutY="155.0" text="SMS Gateway Host:" />
+      <Label layoutX="92.0" layoutY="190.0" text="SMS Gateway Port:" />
+      <Label layoutX="92.0" layoutY="225.0" text="SMS Gateway Username:" />
+      <Label layoutX="92.0" layoutY="258.0" text="SMS Gateway Password:" />
+      <TextField fx:id="hostfld" layoutX="261.0" layoutY="151.0" prefHeight="25.0" prefWidth="285.0" />
+      <TextField fx:id="portfld" layoutX="261.0" layoutY="186.0" prefHeight="25.0" prefWidth="285.0" />
+      <TextField fx:id="unamefld" layoutX="261.0" layoutY="221.0" prefHeight="25.0" prefWidth="285.0" />
+      <TextField fx:id="passfld" layoutX="261.0" layoutY="256.0" prefHeight="25.0" prefWidth="285.0" />
+      <Button id="appButton" layoutX="450.0" layoutY="306.0" mnemonicParsing="false" onAction="#goBack" prefHeight="25.0" prefWidth="89.0" text="Go Back" />
+      <Button id="appButton" layoutX="351.0" layoutY="306.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="89.0" text="Save" />
+      <Label fx:id="msglbl" layoutX="92.0" layoutY="357.0" />
    </children>
 </AnchorPane>
